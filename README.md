@@ -1,2 +1,6 @@
 # cloud-repo
-solo es un repositorio para almacenar mis documentos de configuraciones y guías
+
+Este es un reposiorio usado como nube para algunos documentos de confoguracion, guias y imagenes
+
+- index
+  - [**Guia de Git y GitHub**](./gitHub/gitHub.md)
