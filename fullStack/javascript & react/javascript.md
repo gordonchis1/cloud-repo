@@ -66,3 +66,19 @@ var nombre = `gordonchis`;
 - **_number_**: es cualquier tipo de numero ya sea decimal o entero
 
 - **_booleano_**: solo es 0 y 1 el 0 se refiere a false y el 1 a true
+
+- **_undefined_**: que no esta definido pero que se podra definir mas adelante
+
+- **_null_**: que no hay valor
+
+todos estos son tipos primitivos ya que son inmutables
+
+## Funciones
+
+una funcion sirve para almacenar bloques de codigo para poder reutilisarlo mas adelante podemos poner parametros que en este caso seria operando1 y operando2
+
+```javascript
+const sumar = (operando1, operando2) => {
+  return operando1 + operando2;
+};
+```
