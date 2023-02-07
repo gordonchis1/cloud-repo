@@ -1,7 +1,8 @@
-const Total = ({ sumar }) => (
+const Total = ({ course }) => (
   <p>
     Number of exercises{" "}
-    {sumar[0].exercises + sumar[1].exercises + sumar[2].exercises}
+    {course[0].exercises + course[1].exercises + course[2].exercises}
   </p>
 );
+
 export default Total;

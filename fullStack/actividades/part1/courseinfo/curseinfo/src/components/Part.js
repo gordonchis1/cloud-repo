@@ -1,9 +1,8 @@
-const Part = ({ names, exercises }) => {
-  console.log(names);
+const Part = ({ course }) => {
   return (
     <p>
-      {names}
-      {exercises}
+      {course.name}
+      {course.exercises}
     </p>
   );
 };
