@@ -1,38 +1,54 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
 
-const root = document.getElementById("root");
+const root = document.getElementById(`root`);
 
 const App = () => {
-  const [contadorValue, updateContador] = useState(0);
+  const [counters, setCounters] = useState({
+    left: 0,
+    right: 0,
+    totalClicks: 0,
+  });
 
-  const handleClick = ({ target }) => {
-    let filtro = contadorValue > 0;
+  const [clicks, setClicks] = useState([]);
 
-    if (target.id === "decrementar") {
-      filtro
-        ? updateContador(contadorValue - 1)
-        : updateContador(contadorValue);
-    } else {
-      updateContador(contadorValue + 1);
-    }
+  const sumaLeft = () => {
+    setCounters({
+      ...counters,
+      left: counters.left + 1,
+      totalClicks: counters.totalClicks + 1,
+    });
+    setClicks((prevClicks) => {
+      return [...prevClicks, `L`];
+    });
   };
 
-  const reset = () => {
-    updateContador(0);
+  const sumaRight = () => {
+    setCounters({
+      ...counters,
+      right: counters.right + 1,
+      totalClicks: counters.totalClicks + 1,
+    });
+    setClicks((prevClicks) => {
+      return [...prevClicks, `R`];
+    });
   };
-  const filtro = contadorValue % 2 === 0;
 
   return (
-    <div>
-      <button onClick={handleClick}>incrementar</button>
-      <button onClick={reset}>resetiar</button>
-      <button onClick={handleClick} id="decrementar">
-        decrementar
-      </button>
-      <p>{filtro ? "es par" : "es impar"}</p>
-      <h1>{contadorValue}</h1>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      {counters.left}
+      <button onClick={sumaLeft}>left</button>
+      <h1>{counters.totalClicks}</h1>
+      <p>{clicks.join(`. `)}</p>
+      <button onClick={sumaRight}>right</button>
+      {counters.right}
     </div>
   );
 };

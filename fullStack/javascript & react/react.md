@@ -186,3 +186,208 @@ const App = () => {
   );
 };
 ```
+
+## Ejemplos con un solo estado(objetos en estados)
+
+podemos juntar dos estados en uno aunque no es una buena practica ya que el codigo pierde legibilidad
+
+- ejemplo con dos estados:
+
+```javascript
+const App = () => {
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(0);
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      {left}
+      <button
+        onClick={() => {
+          setLeft(left + 1);
+        }}
+      >
+        left
+      </button>
+      <button
+        onClick={() => {
+          setRight(right + 1);
+        }}
+      >
+        right
+      </button>
+      {right}
+    </div>
+  );
+};
+```
+
+este componente lo que hace es darnos dos botones uno para actualizar el estado de la derecha y otro de la izquierda aora vamos a aprender hacerlo con solo un estado
+
+- ejemplos con un solo estado:
+
+```javascript
+const App = () => {
+  const [counters, setCounters] = useState({ left: 0, right: 0 }); //aqui definimos el estado de left como 0 y el de right como0
+
+  const sumaLeft = () => {
+    setCounters({
+      left: counters.left + 1,
+      right: counters.right,
+    });
+  }; //aqui lo que estamos haciendo es decir que sume uno a left pero a right lo deje como esta
+
+  const sumaRight = () => {
+    setCounters({
+      left: counters.left,
+      right: counters.right + 1,
+    });
+  }; //aqui lo que estamos haciendo es decir que sume uno a right pero a left lo deje como esta
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      {counters.left}
+      <button onClick={sumaLeft}>left</button>
+      {/* aqui imvocamos a las funcion */}
+
+      <button onClick={sumaRight}>right</button>
+      {/* aqui imvocamos a las funcion */}
+
+      {counters.right}
+    </div>
+  );
+};
+```
+
+### pero si esto es una mala practica para que nos serviria
+
+pues la respuesta es para manejar objetos en un estado por si queremos manejar mas de dos contadores
+
+como en el ejemplo que se nos muesta acontinuacion donde tenemos dos counters con dos botones uno incrementa el derecho y otro el izquierdo pero queremos tener uno que diga el total de clicks
+
+```javascript
+const App = () => {
+  const [counters, setCounters] = useState({
+    left: 0,
+    right: 0,
+    totalClicks: 0, //aqui definimos un tercer contador
+  });
+
+  const sumaLeft = () => {
+    setCounters({
+      left: counters.left + 1,
+      totalClicks: counters.totalClicks + 1, //aqui lo que hacemos es sumar uno al total de clicks
+      right: counters.right,
+    });
+  };
+
+  const sumaRight = () => {
+    setCounters({
+      left: counters.left,
+      right: counters.right + 1,
+      totalClicks: counters.totalClicks + 1, //aqui lo que hacemos es sumar uno al total de clicks
+    });
+  };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      {counters.left}
+      <button onClick={sumaLeft}>left</button>
+
+      <h1>{counters.totalClicks}</h1>
+      <button onClick={sumaRight}>right</button>
+      {counters.right}
+    </div>
+  );
+};
+```
+
+pero imagina que tenemos un objeto muy grande en un estado y queremos cambiar uno de los elementos de este objeto tenemos que actualizar de nuevo todos los elementos de el objeto como se ve a continuazion
+
+```javascript
+const [counters, setCounters] = useState({
+  left: 0,
+  right: 0,
+  numeroMantener: 100,
+});
+
+const sumaLeft = () => {
+  setCounters({
+    left: counters.left + 1,
+    right: counters.right,
+    numeroMantener: counter.numeroMantener,
+    //solo quiero cambar uno y tengo que escribir los tres
+  });
+};
+
+const sumaRight = () => {
+  setCounters({
+    left: counters.left,
+    right: counters.right + 1,
+    numeroMantener: counter.numeroMantener,
+    //solo quiero cambar uno y tengo que escribir los tres
+  });
+};
+```
+
+pues esto tiene una solucion que se hace con el spread operator (...) entonces lo que hariamos con el operador es clonar el objeto y sobrescrivir solo los que tenemos que escribir
+
+```javascript
+const [counters, setCounters] = useState({
+  left: 0,
+  right: 0,
+  numeroMantener: 100,
+});
+
+const sumaLeft = () => {
+  setCounters({
+    ...counters//aqui solo clonamos el obj haciendo que solo sobrescriba el valor que queremos cambiar
+    left: counters.left + 1,
+    //solo quiero cambar uno y tengo que escribir los tres
+  });
+};
+
+const sumaRight = () => {
+  setCounters({
+    ...counters//aqui solo clonamos el obj haciendo que solo sobrescriba el valor que queremos cambiar
+    right: counters.right + 1,
+    //solo quiero cambar uno y tengo que escribir los tres
+  });
+};
+```
+
+## Arrays en estados
+
+para usar los arrays en un estado tenemos que declarar en useState que vamos a uasr un array de la sig manera useState(**[]**) a difernencia de los objetos aqui tenemos que si o si **regresar un nuevo array** de la sigiente manera:
+
+```javascript
+const [Arr, setArr] = useState([]);
+
+const addNumberInArr = () => {
+  setArr((prevArr) => {
+    return [...prevArr, Math.random()];
+  });
+};
+```
+
+lo que hacemos en el ejemplo es una funcion que al ejecutarse agrege un numero random al arr recuerda que el spray operator debuelbe un nuevo arr asi que este es el arr que regresa para actualizar el estado

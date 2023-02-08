@@ -82,3 +82,9 @@ const sumar = (operando1, operando2) => {
   return operando1 + operando2;
 };
 ```
+
+### diccionario
+
+aqui solo pondre las cosas que no me quedan tan claras
+
+- spread operator: el spread operator lo que hace es esparcir el objeto en otro objeto para no tener que rescribir todo un objeto
