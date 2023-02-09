@@ -391,3 +391,5 @@ const addNumberInArr = () => {
 ```
 
 lo que hacemos en el ejemplo es una funcion que al ejecutarse agrege un numero random al arr recuerda que el spray operator debuelbe un nuevo arr asi que este es el arr que regresa para actualizar el estado
+
+<FONT color="red">Nota: evita tener estados que no nececitas usa los justos y necesarios</FONT>

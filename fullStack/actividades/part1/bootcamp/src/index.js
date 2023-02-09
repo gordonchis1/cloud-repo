@@ -3,11 +3,14 @@ import { useState } from "react";
 
 const root = document.getElementById(`root`);
 
+const EstadoDeClick = ({ clicksTotales }) => {
+  return <h2>has echo {clicksTotales.length} de clicks totales</h2>;
+};
+
 const App = () => {
   const [counters, setCounters] = useState({
     left: 0,
     right: 0,
-    totalClicks: 0,
   });
 
   const [clicks, setClicks] = useState([]);
@@ -45,10 +48,14 @@ const App = () => {
     >
       {counters.left}
       <button onClick={sumaLeft}>left</button>
-      <h1>{counters.totalClicks}</h1>
-      <p>{clicks.join(`. `)}</p>
+      <h1>{clicks.length}</h1>
       <button onClick={sumaRight}>right</button>
       {counters.right}
+      {clicks.length === 0 ? (
+        clicks.join(`. `)
+      ) : (
+        <EstadoDeClick clicksTotales={clicks} />
+      )}
     </div>
   );
 };
