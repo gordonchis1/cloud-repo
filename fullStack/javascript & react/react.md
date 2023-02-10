@@ -393,3 +393,89 @@ const addNumberInArr = () => {
 lo que hacemos en el ejemplo es una funcion que al ejecutarse agrege un numero random al arr recuerda que el spray operator debuelbe un nuevo arr asi que este es el arr que regresa para actualizar el estado
 
 <FONT color="red">Nota: evita tener estados que no nececitas usa los justos y necesarios</FONT>
+
+## renderizar lista de elementos
+
+para que queremos saber esto? pues la respuesta es facil ya que en react **los objetos no pueden ser hijos de una etqueta**.
+entonses la solucion a este problema es usar javaScript nativo haciendo un map del objeto y regresando las propiedades como se ve acontinuacion
+
+```javascript
+const notes = [
+  {
+    id: 22,
+    title: "hola mundo",
+    date: "21/02/22",
+    describe: "un articulo aburrido",
+  },
+  {
+    id: 13,
+    title: "medio mundo",
+    date: "90/02/22",
+    describe: "un articulo interesante",
+  },
+  {
+    id: 17,
+    title: "adios mundo",
+    date: "11/02/22",
+    describe: "cun articulo medio aburrido",
+  },
+];
+export default function App() {
+  return (
+    <div className="App">
+      {notes.map((note) => {
+        return <p>{note.title}</p>;
+      })}
+      /* aqui mapiamos el objeto para regresar un arr */
+    </div>
+  );
+}
+```
+
+### key en react
+
+cuando renderizamos una lisat en react siempre nos va a dar un error de que no tiene key por lo que debemos de poner una etiqueta llamada key
+
+![](./img/errKey.png)
+
+```javascript
+import "./styles.css";
+
+const notes = [
+  {
+    id: 22,
+    title: "hola mundo",
+    date: "21/02/22",
+    describe: "un articulo aburrido",
+  },
+  {
+    id: 13,
+    title: "medio mundo",
+    date: "90/02/22",
+    describe: "un articulo interesante",
+  },
+  {
+    id: 17,
+    title: "adios mundo",
+    date: "11/02/22",
+    describe: "cun articulo medio aburrido",
+  },
+];
+export default function App() {
+  return (
+    <div className="App">
+      {notes.map((note) => {
+        return (
+          <strong key={note.id}>
+            <p>{note.title}</p>
+          </strong>
+        ); //aqui definimos el key con el id de cada nota
+      })}
+    </div>
+  );
+}
+```
+
+<FONT color="red">Nota: la key debe de estar en el lugar donde estamos iterando los datos</FONT>
+
+[**CodeSandBox to examples**](https://codesandbox.io/s/musing-waterfall-2fvcqm?file=/src/App.js)
