@@ -479,3 +479,91 @@ export default function App() {
 <FONT color="red">Nota: la key debe de estar en el lugar donde estamos iterando los datos</FONT>
 
 [**CodeSandBox to examples**](https://codesandbox.io/s/musing-waterfall-2fvcqm?file=/src/App.js)
+
+## Formularios en react
+
+para trabajar con formularios en react una forma muy facil de hacerlo es con los estados ya que es la forma mas facil pero no siempre es la forma mas optima
+
+```javascript
+export default function App({ notesObj }) {
+  const [note, setNote] = useState(notesObj); //este estado es para almacenar el objeto inicial
+  const [newNote, setNewNote] = useState(""); //este estado es para recolectar el imput
+
+  const handleChange = (e) => {
+    setNewNote(e.target.value); //aqui recolectamos el imput(lo que se escribe)
+  };
+
+  const handleClick = () => {
+    const noteToAddToState = {
+      id: note.length + 1,
+      title: newNote, //aqui le pasamos el newNote que biene del estado donde recolectamos el input
+      date: new Date().toISOString(), //agregamos una fecha
+      important: Math.random() < 0.5,
+    }; //esta es la estructura de una nota
+    setNote(note.concat(noteToAddToState));
+  };
+
+  return (
+    <div>
+      <h1>Notas</h1>
+      {note.map((note) => (
+        <Note {...note} key={note.id} />
+      ))}
+      <div>
+        <input type="text" onChange={handleChange} value={newNote} />
+        {/* este es el imput donde escribimos la nota */}
+        <button onClick={handleClick}>
+          {/* este es el boton con el que agregamos la nota */}
+          crear nota
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+**pero una forma mucho mas correcta de hacer lo pasado es la siguiente y pon atencion de la etiquta form para abajo**
+
+```javascript
+export default function App({ notesObj }) {
+  const [note, setNote] = useState(notesObj); //este estado es para almacenar el objeto inicial
+  const [newNote, setNewNote] = useState(""); //este estado es para recolectar el imput
+
+  const handleChange = (e) => {
+    setNewNote(e.target.value); //aqui recolectamos el imput(lo que se escribe)
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const noteToAddToState = {
+      id: note.length + 1,
+      title: newNote, //aqui le pasamos el newNote que biene del estado donde recolectamos el input
+      date: new Date().toISOString(), //agregamos una fecha
+      important: Math.random() < 0.5,
+    }; //esta es la estructura de una nota
+    setNote(note.concat(noteToAddToState));
+  };
+
+  return (
+    <div>
+      <h1>Notas</h1>
+      {note.map((note) => (
+        <Note {...note} key={note.id} />
+      ))}
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={handleChange} value={newNote} />
+        {/* este es el imput donde escribimos la nota */}
+        <button>
+          {/* este es el boton con el que agregamos la nota */}
+          crear nota
+        </button>
+        {/* siempre el ultimo botton de un formulario sirbe como submit */}
+      </form>
+    </div>
+  );
+}
+```
+
+<FONT color="red">Nota: es muy importante que todos los input y los botones que envian el input esten dentro de la etiquta (</form/>)</FONT>
+
+[**fullProyect**](https://codesandbox.io/s/musing-waterfall-2fvcqm?file=/src/App.js:85-1024)
