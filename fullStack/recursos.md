@@ -15,3 +15,5 @@ estas son algunas paginas para toma rinspiracion de otros sitio web
 # lerning pages
 
 - [**Fullstackopen**](https://fullstackopen.com/es/#course-contents):fullstack open es una pagina con todo un bootcamp en el que nos vasamos para aprender fullstack
+
+- [**status code cats**](https://httpcats.com/[code].jpg): es para ver los codigos de estados reflegados en imagenes de gatos

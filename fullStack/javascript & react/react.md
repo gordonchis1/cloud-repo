@@ -55,7 +55,7 @@ El estado en React nos ayuda a crear datos mutables o datos que pueden ser modif
 una forma de entender el estado en react seria como un switch cuando sabes que esta prendido o apagado
 si el switch esta prendido **el estado del switch es on** y este estado se refleja con la luz si esta esta en on la luz esta prendida pues lo mismo con react el **estado se refleja en el UI**
 
-## useState
+## useState()
 
 el useState es una forma de dar dinamismo a los componentes pero como funciona **lo que hace useState es regresar un array de dos pociciones donde la primera pocicion es el valor del estado y la segunda nos debuelve un metodo para actualizar el estado**
 
@@ -567,3 +567,42 @@ export default function App({ notesObj }) {
 <FONT color="red">Nota: es muy importante que todos los input y los botones que envian el input esten dentro de la etiquta (</form/>)</FONT>
 
 [**fullProyect**](https://codesandbox.io/s/musing-waterfall-2fvcqm?file=/src/App.js:85-1024)
+
+## API`s en React
+
+tu pordrias pensar que solo vasta con hacer un fetch y si en efecto tenemos que usar un fetch el problema es donde tenemos que pues no lo podemos usar dentro de un componente asi nomas porque estariamos haciendo un render infinito porque cada vez que se inicia el componente se va a hacer el fetch y cada vez que el fetch se hace ban a cambiar las propiedades y se va a renderizar de nuevo haci en bucle la respuesta es...
+
+## useEffect()
+
+useEffect es un hook que se ejecuta cada que se renderiza un componente pero este puede ser controlado perfectamente
+
+```javascript
+useEfect(
+  {
+    //funcion que se ejecutara cada que queramos
+  } /*dependecias*/
+);
+```
+
+<FONT color="red">Nota: si useEffct no se controla este se volvera a ejecutar cada que el componente se renderiza</FONT>
+
+- como controlo useEffect?:para decidir cada cuando se ejecuta el useEffect tenemos que indicar una dependencia la cual dira cunado ejecutarse
+
+- que es una dependencia?: una dependencia es una _"Las dependencias son variables o valores que están presentes en el useEffect y que se monitorean por React. Cada vez que se actualiza el componente, React compara las dependencias previas con las nuevas y si alguna ha cambiado, el efecto secundario se vuelve a ejecutar._"-chatGPT.
+  **Entonces en pocas palabras una dependencia es una variable o un valor que cuando cambia tenemos que ejecutar useEffect** se pasa en forma de array por ejemplo: [variable1, variable2] si el valor de la variable1 o de la variable2 cambia el useEffect se volvera a ejecutar
+
+```javascript
+useEffect(() => {
+  console.log("use effect");
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((data) => data.json())
+    .then((data) => console.log(data));
+}, []); //esto se estaria ejecutando solo una ves ya que no hay dependencias
+```
+
+<FONT color="red">Nota: si en un useEffect haces una peticion a una api react no esperara esta respuesta sino que renderizara lo que pueda como cosas externas a la api lo que hara react sera lo sigiente
+
+> 1- renderizar <br/>
+> 2- ejecutar useEffect <br/>
+> 3- esperar la respuesta <br/>
+> 4- volver a renderizar pero con la respuesta de la API </FONT>

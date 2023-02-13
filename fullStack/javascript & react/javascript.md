@@ -83,6 +83,33 @@ const sumar = (operando1, operando2) => {
 };
 ```
 
+## Peticiones con AXIOS
+
+primero que es axios?: _Axios es una biblioteca de JavaScript que se utiliza para realizar solicitudes HTTP, especialmente peticiones AJAX. Axios permite hacer solicitudes HTTP desde el lado del cliente y recibir respuestas del servidor en una forma sencilla y flexible._
+
+para hacer una peticion axios es muy simple ya que es muy parecida a una peticion fetc
+
+```javascript
+  import axios from "axios"
+
+  axios.get("https://jsonplaceholder.typicode.com/posts").((response)=> console.log(response.data))//a diferencia de fetch axios combierte la data automaticamente a json
+```
+
+## alterar datos del servidor con AXIOS
+
+ya vimos como llamar a un api pero si queremos hacer un post nuevo como se hace?
+
+esto se hace con la funcion/etiqutea `axios.post()` seguido de una direccion url y como queremos crear el recurso `axios.post("URL",como crear )`
+
+```javascript
+axios.post("https://jsonplaceholder.typicode.com/posts", {
+  title,
+  userid: 1,
+});
+```
+
+si el codigo de respuesta es 201 significa que se creo con exito
+
 ### diccionario
 
 aqui solo pondre las cosas que no me quedan tan claras
