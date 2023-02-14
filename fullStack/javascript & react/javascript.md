@@ -115,3 +115,11 @@ si el codigo de respuesta es 201 significa que se creo con exito
 aqui solo pondre las cosas que no me quedan tan claras
 
 - spread operator: el spread operator lo que hace es esparcir el objeto en otro objeto para no tener que rescribir todo un objeto
+
+- iterar objetos: para iterar objetos podemos usar la funcion some con la que tenemos que regrsar un booleano ejemplo
+
+```javascript
+//persons = objeto
+
+persons.some((person) => person.name === namesToAdd.name);
+```
