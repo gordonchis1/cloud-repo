@@ -198,6 +198,8 @@ app.listen(port, () => [console.log(`live server in port ${port}`)]);
 
 con este codigo ya estariamos debolbiendo todas las notas pero y si queremos debolver solo una
 
+## Debolviendo elementos por id dinamica
+
 primero tenemos que poner en la direciion algo que sea dincamico osea que sea como un identificador unico lugo tenemos que recuperarlo en el request de la siguiente manera para luego poner un filtro o una busqueda aver si existe esa id en una nota
 
 ```js
@@ -220,3 +222,114 @@ if (note) {
   resposne.status(404).end;
 }
 ```
+
+## haciendo delete a elemetos
+
+hasta aqui ya podemos llamar a solo uno pero que tal si queremos borrar un elemento en este caso una nota
+
+para esto tenemso que cambiar la accion que es **_.get_** por **delete** luego tenemos que hacer un filtro que seria el siguiente `notes = notes.filter(note => note.id !=== id)` **lo que esta diciendo es recuperame todas las notas en un nuevo obj menos la que quiero borrar**
+
+```javascript
+const notes = [
+  {
+    id: 1,
+    content:
+      "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    date: "22/02/23",
+    important: true,
+  },
+  {
+    id: 2,
+    content: "ea molestias quasi exercitationem repellat qui ipsa sit aut",
+    date: "22/02/23",
+    important: false,
+  },
+  {
+    id: 3,
+    content: "dolorem eum magni eos aperiam quia holas",
+    date: "22/02/23",
+    important: true,
+  },
+];
+app.delete("/api/notes/:id", (request, response) => {
+  const id = Number(requets.params.id); //recuperar id dinamica
+
+  notes = notes.filter((note) => note.id !== id); //recupera todas las notas en un nuevo obj menos el que quiero borrar
+  response.status(204).end(); //mandamos un estado 204 a la respuesta
+});
+```
+
+pero como hacemos un delet si cuando ponemos la direccion se va aborrar pues para esto hay dos erramientas...
+
+una puede ser [**postman**](https://www.postman.com/)
+
+pero vamos a usar
+
+## [**Imnsomnia**](https://insomnia.rest/)
+
+Esta aplicacion es muy sencilla ya que la podemos aprender a usar con intuicion
+
+pero lo importante esta aqui lo de verde es la accion y el boton es para mandar a la direccion que indicamos
+
+![](./img/insomnia.png)
+
+para eleminar una solo vasta con indicar la url y el id y esta se eliminara
+
+![](./img/delate.png)<small>ya no existe la nota 1</small>
+
+## Rest client in visual studio code
+
+esta es una extencion de visual estudio code y es muy util por que en esta si alguien mas quiere hacer una peticion para probar puedes hacerla desde un documento aparte con la extencion .rest
+
+para hecer esto tenemos que agregar un archivo que termine con la extencion **.rest** en el tenemos que indicar el metodo que queremos y en la esquina superior izquierda no aparecera para mandar la peticion
+
+```rest
+  //recuperar todas las notas
+  GET http://localhost:3000/api/notes/
+```
+
+para hacer un post tenemos que pasar el objeto
+
+![](./img/post.png)
+<i>esto es lo que deveria contener un post</i>
+
+![](./img/vs%20code%20request.png)
+
+## agregar nota con POST
+
+para hacer esto tenemos que usar el metodo **post**
+
+1. primero tenemos que recuperar la nota que nos manda la cual se entuentra en el body de la request
+
+2. tenmos que hacer el post pasando el obj
+
+3. tenemos que recuperar las notas generar lo que tengamos que generar y concatenar con nuestro obj y regresamos la nueva nota
+
+```javascript
+app.post("/api/notes", (request, response) => {
+  const note = request.body; //recuperamos el body
+
+  const ids = notes.map((note) => note.id); //creamos una id
+  const maxIds = Math.max(...ids);
+
+  const newNote = {
+    id: maxIds + 1, //sumamos al id mas alto mas uno
+    content: note.content, //creamos el contenido
+    imporant: typeof note.imporant !== "undefined" ? note.imporant : false,
+    date: new Date().toISOString(), //creamos una fecha
+  };
+
+  notes = [...notes, newNote]; // esto es lo equivalente al concat
+
+  response.json(newNote); //regresamos la nueva nota(o el objeto final)
+});
+```
+
+![](./img/post.png)
+<i>esto es lo que deveria contener un post</i>
+
+<FONT color="red">Nota: antes teniamos que instalar a mano un parse de json pero en las verciones actuales de express esto ya no es nesesario</FONT>
+
+![](./img/json%20parse.png)<i>esto temos que usar para el parse por defecto de express</i>
+
+<FONT color="red">Nota: la id como si tenemos un date(fecha) no se tiene que pasar por una post ya que estas se deverian de generar la misma api _**entre menos contenido le pasemos a una api mejor**_ </FONT>

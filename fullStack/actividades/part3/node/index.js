@@ -2,7 +2,9 @@ const http = require("http");
 const express = require("express");
 const app = express();
 
-const notes = [
+app.use(express.json());
+
+let notes = [
   {
     id: 1,
     content:
@@ -37,6 +39,36 @@ app.get("/api/notes/:id", (requets, response) => {
   } else {
     response.status(404).end();
   }
+});
+
+app.delete("/api/notes/:id", (request, response) => {
+  const id = Number(request.params.id);
+
+  notes = notes.filter((note) => note.id !== id);
+
+  response.status(204).end();
+});
+
+app.post("/api/notes", (request, response) => {
+  const note = request.body;
+
+  if (!note || !note.content) {
+    return response.status(400).json({ error: `no error mising is ivalid` });
+  }
+
+  const ids = notes.map((note) => note.id);
+  const maxIds = Math.max(...ids);
+
+  const newNote = {
+    id: maxIds + 1,
+    content: note.content,
+    imporant: typeof note.imporant !== "undefined" ? note.imporant : false,
+    date: new Date().toISOString(),
+  };
+
+  notes = [...notes, newNote];
+
+  response.status(201).json(newNote);
 });
 
 const port = 3000;

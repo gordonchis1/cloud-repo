@@ -1,0 +1,15 @@
+POST http://localhost:3000/api/notes  HTTP/1.1
+Content-Type: application/json
+
+{
+    "content": "hola cola",
+    "important": true
+}
+
+###
+
+POST http://localhost:3000/api/notes  HTTP/1.1
+Content-Type: application/json
+
+{
+}
