@@ -333,3 +333,28 @@ app.post("/api/notes", (request, response) => {
 ![](./img/json%20parse.png)<i>esto temos que usar para el parse por defecto de express</i>
 
 <FONT color="red">Nota: la id como si tenemos un date(fecha) no se tiene que pasar por una post ya que estas se deverian de generar la misma api _**entre menos contenido le pasemos a una api mejor**_ </FONT>
+
+
+## middlewares en express
+
+que es un middleware? un middleware es una funcion que intersepta la peticion que esta pasando por tu api 
+
+para usar esto tenemos que usar la palabra clave **use** que significa que cualquier accion ya sea un get un post o un delete va a pasar por esta funcion osea que siempre se va a ejecutar
+
+pdemso hacer lo que sea para recuperar datos de la request pero siempre al ultimo tenemos que indicar que siga con la funcion **next()** si no ponemos esto se quedara atascado en la funcion
+
+```js
+  app.use(request, response, next) => {
+    console.log(request.method)// aqui pedimos el metodo que quiere usar ej. GET POST DELETE
+    console.log(request.path)//aqui a que direccion ej. /api/notes/1
+    console.log(request.body)//aqui el cuerpo si no tiene nos devolvera un obj vasio
+    next()// aqui indicamos que siga a otro checkpoint
+  }
+
+  app.use((request, response,next)){
+    console.log("segundo checkpoint")//despues pasa por aqui
+    next()
+  }
+```
+
+esto es muy util para crear un 404 ya que si no entra en ninguno se va a ir por la ultima opccion
