@@ -358,3 +358,17 @@ pdemso hacer lo que sea para recuperar datos de la request pero siempre al ultim
 ```
 
 esto es muy util para crear un 404 ya que si no entra en ninguno se va a ir por la ultima opccion
+
+## Problemas de CORS(Cross-Origin Resource Sharing)
+
+Que es el cors? "El problema CORS se refiere a una situación en la que una aplicación web basada en navegador intenta acceder a recursos que están en otro dominio y el servidor no permite esa comunicación"-Bing Chat.
+**En pocas palabras el problma es que la api esta en otro dominio y el backend de ella no espicifico quienes pueden hacceder a esta osea que otro dominio pueda acceder a ella** para solucionar:
+
+- existe un middelwer para esto el cual se instala usando ```npm install cors``` es una dependencia de produccion no de desarollo
+
+
+- para usar lo tenemos que requerir en el documento como cualquier otra dependencia ```const cors = require('cors')```
+
+- **para usar este middleware tenemos que simplemente usarlo ```app.use(cors())``` esto por defecto dejara pasar todos los origenes pero tiene infinitas configuraciones**
+
+<FONT color="red">Nota: Este middleware no lo uses como metodo de seguridad para tu API ya que es muy facil de hackear</FONT>

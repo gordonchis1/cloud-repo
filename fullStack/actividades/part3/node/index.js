@@ -1,6 +1,8 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 app.use((request, response, next) => {
@@ -83,5 +85,5 @@ app.use((request, response) => {
 }
 )
 
-const port = 3000
+const port = 3001
 app.listen(port, () => [console.log(`live server in port ${port}`)])
