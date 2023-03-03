@@ -372,3 +372,40 @@ Que es el cors? "El problema CORS se refiere a una situación en la que una apli
 - **para usar este middleware tenemos que simplemente usarlo ```app.use(cors())``` esto por defecto dejara pasar todos los origenes pero tiene infinitas configuraciones**
 
 <FONT color="red">Nota: Este middleware no lo uses como metodo de seguridad para tu API ya que es muy facil de hackear</FONT>
+
+## Deployar nuestra API en Heroku
+
+1. El primer paso para deployar nuestra API es hacer un repositorio de gitHub con todos los archivos de la api
+
+2. Segundo paso es crear un archivo llamado procfile donde tenemos que indicar que tipo de servicio queremos deployar y el comando que tiene que ejecutar para ejecutar la api o aplicacion en este caso seria 
+
+```Procfile 
+  web: npm start
+```
+
+3. Tercer paso tenemos que cambiar en nuestro archivo el port ya que heroku nos va a asignar uno podemos hacer un or porsi no exitste 
+
+```JS
+ const PORT = process.env.PORT || 3001 
+```
+
+3. luego tenos que crear la aplicaion en la terminal con el seigiente comando
+
+```powershell
+  heroku create
+```
+
+esto nos ba a regresar una URL que vamos a utilizar pero en este momento aun no contiene nuestra app
+
+4. para el paso sigiente heroku nos regresara un nuevo repositorio remto en git llamado heroku lo que tendriamos que hacer es usar el tipico comando de puish pero enves de pushearlo en el origen lo pushariamos en heroku
+
+```git
+  git push -u heroku master
+```
+cuando agamos esto se instalara en el remoto de heroku todos los archivos 
+
+5. 
+
+
+<FONT color="red">Nota: para realizar el tercer paso tenemos que tener instalado [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)</FONT>
+
