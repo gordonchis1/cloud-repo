@@ -33,3 +33,39 @@ tambien podemos usar configuraciones que ya existen como un ejemplo pude ser sta
 para instalarlo utilizamos el comando ```npm install standard -D ``` con esto ya no nececitamos un eslintrc y solo agregamos lo siguiente en el package.json
 
 ![](./img/standard_eslint.png)
+
+## Deployar con Heroku
+
+1. El primer paso para deployar nuestra API es hacer un repositorio de gitHub con todos los archivos de la api
+
+2. Segundo paso es crear un archivo llamado procfile donde tenemos que indicar que tipo de servicio queremos deployar y el comando que tiene que ejecutar para ejecutar la api o aplicacion en este caso seria 
+
+```Procfile 
+  web: npm start
+```
+
+3. Tercer paso tenemos que cambiar en nuestro archivo el port ya que heroku nos va a asignar uno podemos hacer un or porsi no exitste 
+
+```JS
+ const PORT = process.env.PORT || 3001 
+```
+
+3. luego tenos que crear la aplicaion en la terminal con el seigiente comando
+
+```powershell
+  heroku create
+```
+
+esto nos ba a regresar una URL que vamos a utilizar pero en este momento aun no contiene nuestra app
+
+4. para el paso sigiente heroku nos regresara un nuevo repositorio remto en git llamado heroku lo que tendriamos que hacer es usar el tipico comando de puish pero enves de pushearlo en el origen lo pushariamos en heroku
+
+```git
+  git push -u heroku master
+```
+cuando agamos esto se instalara en el remoto de heroku todos los archivos 
+
+5. 
+
+
+<FONT color="red">Nota: para realizar el tercer paso tenemos que tener instalado [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)</FONT>
