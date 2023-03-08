@@ -409,3 +409,10 @@ cuando agamos esto se instalara en el remoto de heroku todos los archivos
 
 <FONT color="red">Nota: para realizar el tercer paso tenemos que tener instalado [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)</FONT>
 
+
+## diccionario
+
+- variavles de entorno: una variable de entorno son variables que no estan en nuestra aplicacion si no en nuestro sistema operativo una forma de pasar variables de entorno es en la terminal o usando un archivo .env pero si queremos usar esta maner tenemos que descragar dependencia llamada dotenv
+```javascript
+  const PORT = process.env.PORT
+```

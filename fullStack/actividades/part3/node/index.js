@@ -1,3 +1,7 @@
+require('./mongo')
+require('dotenv').config()
+
+const Note = require('./models/Note')
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -14,29 +18,10 @@ app.use((request, response, next) => {
 })
 
 let notes = [
-  {
-    id: 1,
-    content:
-      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-    date: '22/02/23',
-    important: true
-  },
-  {
-    id: 2,
-    content: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
-    date: '22/02/23',
-    important: false
-  },
-  {
-    id: 3,
-    content: 'dolorem eum magni eos aperiam quia holas',
-    date: '22/02/23',
-    important: true
-  }
 ]
 
 app.get('/api/notes', (requets, response) => {
-  response.json(notes)
+  Note.find({}).then((note) => response.json(note))
 })
 
 app.get('/api/notes/:id', (requets, response) => {

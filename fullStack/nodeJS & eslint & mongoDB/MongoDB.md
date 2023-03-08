@@ -149,3 +149,100 @@ para buscar datos desde nuestro documento podemos usar el comando ```find```
     )
 ```
 y esto nos devolvera los objetos que buscamos
+
+## Conectando backend(applicacion) a MongoDB
+
+primero lo fundamental por comodidad es separar de documento la conexion y el modelo para mayor comodidad
+
+
+el archvio del **modelo** se veria asi
+```javascript
+import { Schema, model } from 'mongoose'
+
+const noteSchema = new Schema({ content: String, date: Date, important: Boolean })
+
+const Note = model('Note', noteSchema)
+
+module.exports = Note
+```
+
+
+el archivo del la **conexion** de mongo
+```javascript
+const mongoose = require('mongoose')
+const password = 'Elcantis'
+
+const connectionString = `mongodb+srv://eduardovaldse:${password}@cluster0.vyoiqs3.mongodb.net/gordonchisdb?retryWrites=true&w=majority`
+
+// conexion a monogo
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('data base conected')).catch(err => console.error(err))
+
+const noteSchema = new Schema({ content: String, date: Date, important: Boolean })
+
+const Note = model('Note', noteSchema)
+```
+
+en nuestra aplicacion tenemos que importar el archivo que hace la conexicon a mongo 
+
+y tambien el modelo en este caso el modelo se llama notas por lo que nuestros import deben de quedar como se muestra en la imagen **primero el documento que hace la conexion y luego los modelos**
+
+![](./img/conexioon%20app.png)
+
+
+esto hara que se conecte automaticamente mongo pero si lo importas la conexion en funcion tienes que ejecutarla despues
+
+## buscar en la base de datos
+
+una ves conectada nuestra base de datos podemos empezar a hacer busquedas en ella por ejemplo en el sigiente ejemplo vamos a ver como una app hace una app hace una llamada par ahacer una api
+
+```javascript
+app.get('/api/notes', (requets, response) => {
+  Note.find({}).then((data) => response.json(data))//busca todas las notas en la base de datos
+})
+```
+
+en este momento si hacemos un request a esta api nos regresara todas las notas que tenemos en la base de datos
+
+## cambiar el valor _id por defecto y quitar _V con (.set)
+
+para hacer esto podemos usar transformar el metodo json en nuestro esquema para asi renobrar al _id como id para esto tenemos que conocer el metodo .set
+
+
+lo que vamos a hacer es decirle a nuestro esquema que cuando se use el metodo .toJson en el cambie de comportamiento de la siguiente manera 
+
+esto se hace con el metodo **set(metodo que queremos editar)**
+
+```js
+//notaSchema = a el esquema echo previa mente
+notaSchema.set('toJSON', {
+    transform: {document, returnedObject} => {
+        returnedObject.id = returnedObject._id //le estamos deiciendo que solo transforme el _id a un id definido
+    }
+}) 
+```
+
+el output de el ejemplo anterior seria el siguiente 
+
+![](./img/transformar%20metodo.png)
+
+pero vemos que todiabia tenemos el valor de _id y __V vamos a eliminarla de la siguiente manera
+
+```javascript
+//notaSchema = a el esquema echo previa mente
+notaSchema.set('toJSON', {
+    transform: {document, returnedObject} => {
+        returnedObject.id = returnedObject._id //le estamos deiciendo que solo transforme el _id a un id definido
+        delete returnedObject._id,
+        delete returnedObject.__v//decimos que queremos eliminar el valor de __v
+    }
+}) 
+```
+
+<FONT color="red">Nota: en muchos casos el elmento delete es una mala practica si lo hacemos mutando la base de datos en este caso no ya que estamos mutando el objeto a devolver y no el objeto de la vase de datos</FONT>
+
+__"El método set en el esquema noteSchema se utiliza para modificar la configuración del esquema. En este caso, se está utilizando para definir una función de transformación personalizada para el método toJSON. Esta función se ejecutará cada vez que un documento de este esquema sea convertido a JSON y su objetivo es agregar un campo id al objeto JSON resultante que tenga el mismo valor que el campo _id del documento. ¿Te gustaría saber algo más sobre esto?"__
+
+[si quiers saber mas sobre el metodo set click](https://www.mongodb.com/docs/v6.0/reference/operator/update/set/)
