@@ -1,13 +1,34 @@
 require('./mongo')
 require('dotenv').config()
 
+const Sentry = require('@sentry/node')
+const Tracing = require('@sentry/tracing')
 const Note = require('./models/Note')
 const express = require('express')
-const cors = require('cors')
 const app = express()
+const cors = require('cors')
 
 app.use(cors())
 app.use(express.json())
+
+Sentry.init({
+  dsn: 'https://e02719f6211a4011b43cfa12c274caa9@o4504817975164928.ingest.sentry.io/4504817976868869',
+  integrations: [
+    // enable HTTP calls tracing
+    new Sentry.Integrations.Http({ tracing: true }),
+    // enable Express.js middleware tracing
+    new Tracing.Integrations.Express({ app })
+  ],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0
+})
+
+app.use(Sentry.Handlers.requestHandler())
+
+app.use(Sentry.Handlers.tracingHandler())
 
 app.use((request, response, next) => {
   console.log(request.method)
@@ -17,30 +38,45 @@ app.use((request, response, next) => {
   next()
 })
 
-let notes = [
-]
-
 app.get('/api/notes', (requets, response) => {
   Note.find({}).then((note) => response.json(note))
 })
 
-app.get('/api/notes/:id', (requets, response) => {
-  const id = Number(requets.params.id)
+app.get('/api/notes/:id', (requets, response, next) => {
+  const { id } = requets.params
 
-  const note = notes.find((note) => note.id === id)
-  if (note) {
-    response.json(note)
-  } else {
-    response.status(404).json({ error: 'no nota 404' }).end()
+  Note.findById(id).then(note => {
+    if (note) {
+      return response.json(note)
+    } else {
+      response.status(404).end()
+    }
   }
+  ).catch(err => {
+    next(err)
+  })
 })
 
-app.delete('/api/notes/:id', (request, response) => {
-  const id = Number(request.params.id)
+app.put('/api/notes/:id', (request, response, next) => {
+  const { id } = request.params
+  const note = request.body
 
-  notes = notes.filter((note) => note.id !== id)
+  const updateNote = {
+    content: note.content,
+    important: note.important
+  }
 
-  response.status(204).end()
+  Note.findByIdAndUpdate(id, updateNote, { new: true }).then(data => {
+    response.json(200, data).end()
+  }
+  )
+})
+
+app.delete('/api/notes/:id', (request, response, next) => {
+  const { id } = request.params
+  Note.findByIdAndRemove(id)
+    .then(result => { response.status(204).end() }
+    ).catch(err => next(err))
 })
 
 app.post('/api/notes', (request, response) => {
@@ -50,25 +86,27 @@ app.post('/api/notes', (request, response) => {
     return response.status(400).json({ error: 'no error mising is ivalid' })
   }
 
-  const ids = notes.map((note) => note.id)
-  const maxIds = Math.max(...ids)
-
-  const newNote = {
-    id: maxIds + 1,
+  const noteDb = new Note({
     content: note.content,
-    imporant: typeof note.imporant !== 'undefined' ? note.imporant : false,
+    important: typeof note.imporant !== 'undefined' ? note.important : false,
     date: new Date().toISOString()
+  })
+  noteDb.save().then((saveNota) => { response.json(saveNota) })
+})
+
+app.use(Sentry.Handlers.errorHandler())
+
+app.use((error, requets, response, next) => {
+  if (error.name === 'CastError') {
+    response.status(400).send({ error: 'id is bad' }).end()
+  } else {
+    response.status(500).end()
   }
-
-  notes = [...notes, newNote]
-
-  response.status(201).json(newNote)
 })
 
 app.use((request, response) => {
   response.status(404).json({ error: 'NOT ' })
 }
 )
-
 const port = 3001
 app.listen(port, () => [console.log(`live server in port ${port}`)])

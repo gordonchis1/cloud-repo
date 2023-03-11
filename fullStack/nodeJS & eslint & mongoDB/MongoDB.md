@@ -246,3 +246,78 @@ notaSchema.set('toJSON', {
 __"El método set en el esquema noteSchema se utiliza para modificar la configuración del esquema. En este caso, se está utilizando para definir una función de transformación personalizada para el método toJSON. Esta función se ejecutará cada vez que un documento de este esquema sea convertido a JSON y su objetivo es agregar un campo id al objeto JSON resultante que tenga el mismo valor que el campo _id del documento. ¿Te gustaría saber algo más sobre esto?"__
 
 [si quiers saber mas sobre el metodo set click](https://www.mongodb.com/docs/v6.0/reference/operator/update/set/)
+
+## Conectando un POST de una api a la db de mongo
+
+para hacer esto tenemos que crear un elemento nuevo el cual ya esta definido su esquema previa mente de la siguiente manera
+
+```javascript 
+app.post('/api/notes', (request, response) => {
+  const note = request.body
+
+  const newNote = new Note({
+    content: note.content,
+    important: typeof note.important || false,
+    date: new Date().toISOString()
+  })
+  newNote.save().then((saveNota) => { response.json(saveNota) })//lo que hacemos es crear una nueva nota y regresar la nueva nota en el response 
+})
+```
+
+## Regresar una nota por id en una API con la vase de datos(findById)
+
+esto lo podriamos hacer con un .find() pero esto es una mala practica ya que tenemos al metodo findById({}) donde solo tenemos que pasar la id
+
+```javascript
+app.get('/api/notes/:id', (requets, response) => {
+  const { id } = requets.params
+
+  Note.findById(id).then(note => {
+    if (note) {
+      return response.json(note)
+    } else {
+      response.status(404).end()
+    }
+  }
+  ).catch(err => {
+    console.log(err)
+    response.status(503).end()
+  })
+})
+```
+
+## hacer delete en la base datos (findByIdAndRemove)
+
+para borrar un elemento en la base de datos desde nuestra aplicacion podemos usar **findByIdAndRemove**
+
+```javascript
+app.delete('/api/notes/:id', (request, response, next) => {
+  const { id } = request.params//recuperamos la id
+  Note.findByIdAndRemove(id)//buscamos la nota por id y la borramos
+    .then(result => { response.status(204).end() }//regresamos el status code
+    ).catch(err => next(err))//usamos el middleware de express
+})
+```
+
+## editar elemento de la base de datos 
+
+para hacer esto podemos usar el metdo llamado **findByIdAndUpdate** aqui tenemos que pasar el body de lo que queremos actualizar 
+
+```javascript
+app.put('/api/notes/:id', (request, response, next) => {
+  const { id } = request.params//recuperamos el id
+  const note = request.body//requperamos el body
+
+  const updateNote = {
+    content: note.content,
+    important: note.important
+  }//definimos la nota
+
+  Note.findByIdAndUpdate(id, updateNote, {new: true}).then(data => {//tenemos que pasar la nueva nota y el id
+    response.json(200, data).end()
+  }
+  )
+})
+```
+
+<FONT color="red">Nota: la promesa regresa la nota antes de ser actualizada asi que si quieres regresar la nota vas a regresar la anterior pero podemos usar un 3 parametro donde diga {new: true}</FONT>
