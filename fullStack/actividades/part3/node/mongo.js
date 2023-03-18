@@ -2,7 +2,9 @@ require('dotenv').config()
 
 const mongoose = require('mongoose')
 
-const connectionString = process.env.MONGO_DB_CONECTIONSTRING
+const { MONGO_DB_CONECTIONSTRING, MONGO_DB_CONECTIONSTRING_TEST, NODE_ENV } = process.env
+
+const connectionString = MONGO_DB_CONECTIONSTRING
 
 // conexion a monogo
 mongoose.connect(connectionString, {
