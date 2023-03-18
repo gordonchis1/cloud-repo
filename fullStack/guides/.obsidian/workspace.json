@@ -1,18 +1,22 @@
 {
   "main": {
-    "id": "8e6a57d32aa1fdfb",
+    "id": "46c8cd6ff1eaa3b9",
     "type": "split",
     "children": [
       {
-        "id": "6684e8f03e00feb7",
+        "id": "0673182d8175229e",
         "type": "tabs",
         "children": [
           {
-            "id": "da8e902f1f18a587",
+            "id": "0c1cbfec9ad3ff01",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "javascript & react/react.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -21,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d6798969834afa9d",
+    "id": "0852b300ed55a901",
     "type": "split",
     "children": [
       {
-        "id": "0e674d7a42c87557",
+        "id": "cbe8945404c944ff",
         "type": "tabs",
         "children": [
           {
-            "id": "95b234bda6203205",
+            "id": "02e3248927508be0",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -39,7 +43,7 @@
             }
           },
           {
-            "id": "389a2d46e29144ae",
+            "id": "d552e6e47fdf4abd",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -54,34 +58,34 @@
             }
           },
           {
-            "id": "606b59fc0f96641e",
+            "id": "bf165dd78e013f17",
             "type": "leaf",
             "state": {
               "type": "starred",
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
   "right": {
-    "id": "2e894be1668f1110",
+    "id": "76306d3a8621a1ff",
     "type": "split",
     "children": [
       {
-        "id": "b70e687718dc7afc",
+        "id": "43bb70dea22d81f7",
         "type": "tabs",
         "children": [
           {
-            "id": "dd4267ef04321387",
+            "id": "fbdc251278ad5def",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "javascript & react/react.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,18 +97,19 @@
             }
           },
           {
-            "id": "95776f5c5df0f118",
+            "id": "6c98bda9e04331c5",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "javascript & react/react.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "e8c30dcca4041086",
+            "id": "9d0eb70e4c29cf33",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -115,11 +120,13 @@
             }
           },
           {
-            "id": "893b565533db87dd",
+            "id": "74e852fe946aa87f",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "javascript & react/react.md"
+              }
             }
           }
         ]
@@ -139,16 +146,8 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "da8e902f1f18a587",
+  "active": "0c1cbfec9ad3ff01",
   "lastOpenFiles": [
-    "fullStack/actividades/notes_part2/node_modules/express/Readme.md",
-    "fullStack/actividades/part1/courseinfo/curseinfo/node_modules/express/Readme.md",
-    "fullStack/actividades/part1/unicafe/node_modules/express/Readme.md",
-    "fullStack/actividades/part3/node/node_modules/express/Readme.md",
-    "fullStack/actividades/part1/unicafe/node_modules/http-proxy/CHANGELOG.md",
-    "Untitled.md",
-    "fullStack/actividades/notes_part2/node_modules/which-module/CHANGELOG.md",
-    "fullStack/nodeJS & eslint & mongoDB/MongoDB.md",
-    "fullStack/nodeJS & eslint & mongoDB/ESlint & deploy.md"
+    "javascript & react/javascript.md"
   ]
 }
