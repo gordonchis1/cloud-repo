@@ -1,6 +1,7 @@
-# TESTING 
+# Testing
+#TESTING 
 
-Que es el testing? _"El testing es una herramienta de feedback que permite detectar errores en el proceso de desarrollo para poder solucionarlos a tiempo. Se puede describir como el proceso de verificación y validación de una aplicación 1. Es una disciplina en la ingeniería de software que permite tener procesos, métodos de trabajo y herramientas para identificar defectos en el software alcanzando un proceso de estabilidad del mismo "._-CHAT bing 
+Que es el testing? _"El testing es una herramienta de feedback que permite detectar errores en el proceso de desarrollo para poder solucionarlos a tiempo. <mark style="background: #D2B3FFA6;">Se puede describir como el proceso de verificación y validación de una aplicación</mark> 1. Es una disciplina en la ingeniería de software que permite tener procesos, métodos de trabajo y herramientas para identificar defectos en el software alcanzando un proceso de estabilidad del mismo "._-CHAT bing 
 en pocas palabras puedes detectar errores en el codigo emular que pasaria si tal dato no llegara
 
 por ejemplo tenemos el siguiete codigo 
@@ -144,6 +145,9 @@ esto en que cambia en el codigo podrias decir que nada pero en el output lo hace
 ![](./img/describe.png)
 
 ## Haciendo testing a una api
+#api
+ 
+Si quieres encontrar la api que vamos a usar o quieres hacerla [[NodeJS#Creando api res]]
 
 Primero tenemos que hacer una nueva base de datos para testing 
 
@@ -151,7 +155,7 @@ Primero tenemos que hacer una nueva base de datos para testing
 
 lo que podriamos hacer es una nuevo archivo de conexion a mongo pero esto estaria mal ya que no es nesesario hacer otro lo que podemos usar es variables de entorno
 
-1. tenemos que definir las variables de entorno depende de donde corramos el npm ejemplo 
+1. tenemos que definir las variables de entorno depende de donde corramos el npm por ejemplo si lo hacemos en el entorno de desarollo tendriamos que definir <mark style="background: #FFB8EBA6;"> NODE_ENV=development</mark> ejemplo 
 
 ```json
  "scripts": {
@@ -162,4 +166,97 @@ lo que podriamos hacer es una nuevo archivo de conexion a mongo pero esto estari
   },
 ```
 
+2. luego en nuestro arichivo de conexion a mongo tenemos que usar usar la variable de entrono para saber en que entorno estamos corriendo la base de datos ejemplo:
+
+```JAVASCRIPT
+//aqui recuperamos las bariantes de entorno que son los conection string y el entorno
+const { MONGO_DB_CONECTIONSTRING, MONGO_DB_CONECTIONSTRING_TEST, NODE_ENV } =process.env
+  
+//decimos si NODE_ENV es test conecta la base de datos con el conexionString de test
+const connectionString = NODE_ENV === 'test' ? MONGO_DB_CONECTIONSTRING_TEST : MONGO_DB_CONECTIONSTRING
+```
+
+<FONT color="red">Nota: el cross-env es una libreria para windows ya que en windows podriamos llegar a tener errores al momento de usar los entornos</FONT>
+
 <FONT color="red">Nota: crear una nueva base de datos para testing es una mala practica mas adelante cambiaremos de metodo </FONT>
+
+## Testiando end points 
+
+una vez conectada nuestra base de datos tenemos que pensar que deberiamos de testear en este caso lo que vamos a testear son los end points o las rutas a donde accede el usario
+
+## usando super test para testear api
+
+Que es supertest? _"Supertest es un módulo de Node.js que proporciona una interfaz Fluent API para probar servicios HTTP. Utiliza superagent como cliente HTTP y ofrece aserciones a través de su Fluent API. ¿Quieres saber más sobre Supertest o cómo usarlo?"_-bing chat
+En pocas plabaras super test <mark style="background: #FFB8EBA6;">nos va a ayudar a testear los end points de nuestra api</mark>
+
+1. Primero lo que tenemos que hacer es <mark style="background: #FFF3A3A6;">instalar la dependencia como dependencia de desarollo</mark>
+
+2. Crear un fichero de test con la extencion <mark style="background: #FFF3A3A6;">.test.js e importar super test como dependencia y la app e iniciar supertest con la app</mark> de la siguiente manera 
+```javascript
+const supertest = require('supertest')
+const app = require('../app.js')
+
+const api = supertest(app)
+// asegurate que la app se este exportando desde el archivo raiz 
+```
+
+3. <mark style="background: #FFF3A3A6;">Hacer nuestro primer test</mark> de la siguiente manera en el ejemplo vamos a verificar si las notas se devuelven en json
+
+```javascript
+const api = supertest(app)
+
+test('notes are returned as json', () => {
+  api
+    .get('/api/notes')
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+})
+```
+ pero esto esta <mark style="background: #FF5582A6;">mal ya que el test es asyncrono por lo que tendriamos que esperar entonces este test siempre se pasara </mark>ya que no estamos esperando y se esta saltando las pruebas
+
+4. solucionar problemas de espera <mark style="background: #FFF3A3A6;">haciendo la funcion asyncrona</mark>
+ ```javascript
+const api = supertest(app)
+
+test('notes are returned as json', async () => {
+  await api
+    .get('/api/notes')//este es la ruta que estamos testiando
+    .expect(200)//el status que esperamos
+    .expect('Content-Type', /application\/json/)//y el tipo de archivo que queremos recivir 
+})
+```
+
+<FONT color="red">Nota: simepre tenemos que forzar un error nosotros mismos para saber si nuestro test esta funcionando o si se esta saltando los test</FONT>
+
+Que es /application\/json/? este es un regex o exprecion regular que lo que hace es verificar si lo que regresa en un json 
+_"[Una expresión regular (también conocida como regex o regexp) es una secuencia de caracteres que conforma un patrón de búsqueda](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)[1] (https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular). [Se utilizan para buscar coincidencias en el texto de entrada y pueden incluir literales de carácter, operadores o estructuras](https://learn.microsoft.com/es-es/dotnet/standard/base-types/regular-expression-language-quick-reference)"_
+
+<FONT color="red">Nota: si ves cuando haces un test lo que regresa son cada uno de los console.log() que tenemos en nuestro codigo esto lo podemos arrglar agregando en el package.json lo siguiente ``` "test": "cross-env NODE_ENV=test jest --verbose --silent"```</FONT> 
+
+
+## solucinando posibles errores de la api
+
+- tambien hay probalididades que nos regrese lo siguiente
+![1000](./img/noClose.png)
+esto significa que no emos serrado algo ya sea una conexion con la base de datos o una conexion con el servidor <mark style="background: #FFB8EBA6;">podemos ejecutar --detectOpenHandles para detectar la conexion avierta</mark> 
+
+###  Solucionando conexion abierta con el Hook afterAll()
+En este caso el puerto que estab abierto era el escuhca del servidor pero para solucionar esto podemos hacer lo siguiente <mark style="background: #FF5582A6;">tenemos que exportar no solo la app si no que tambien el servior</mark>
+```javascript
+//esto es miy importante importar el app y el server
+const { app, server } = require('../index')
+const mongoose = require('mongoose')
+
+test('notes are returned as json', async () => {
+  await api
+    .get('/api/notes')
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+})
+
+afterAll(()=> {
+	server.close()
+	mongoose.connection.close()
+})//lo que decimos es cuando termine todos los test cierra la conexion del server y la de la base de datos
+
+```

@@ -1,4 +1,5 @@
-# ESlint
+# ESlint	
+	#ESlint
 
 que es Eslint? _"ESLint es una herramienta de análisis de código estático de código abierto para JavaScript. Se utiliza para identificar y reportar patrones en el código JavaScript, lo que ayuda a mejorar la calidad y consistencia del código en un proyecto."_-chatGPT
 en pocas palabras ESlint es como un autocorrector para codigo te ayuda a dare un estylo a tu codigo
@@ -65,7 +66,6 @@ esto nos ba a regresar una URL que vamos a utilizar pero en este momento aun no 
 ```
 cuando agamos esto se instalara en el remoto de heroku todos los archivos 
 
-5. 
 
 
 <FONT color="red">Nota: para realizar el tercer paso tenemos que tener instalado [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)</FONT>

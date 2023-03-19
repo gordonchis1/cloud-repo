@@ -1,52 +1,19 @@
-## INDICE
-
-<!-- vscode-markdown-toc -->
-* 1. [Iniciar proyecto con npm](#Iniciarproyectoconnpm)
-* 2. [Ejecutar archivo con nodeJS](#EjecutararchivoconnodeJS)
-	* 2.1. [Ejecutar con scripts](#Ejecutarconscripts)
-* 3. [Primer servidor con nodeJS](#PrimerservidorconnodeJS)
-* 4. [Pasar objetos en un response](#Pasarobjetosenunresponse)
-* 5. [content type](#contenttype)
-* 6. [Nodemon](#Nodemon)
-* 7. [que es express? y porque express?](#queesexpressyporqueexpress)
-* 8. [Express](#Express)
-* 9. [semantica en las versiones de package](#semanticaenlasversionesdepackage)
-* 10. [api res](#apires)
-* 11. [Devolver todas los elementos](#Devolvertodasloselementos)
-* 12. [Debolviendo elementos por id dinamica](#Debolviendoelementosporiddinamica)
-* 13. [haciendo delete a elemetos](#haciendodeleteaelemetos)
-* 14. [[**Imnsomnia**](https://insomnia.rest/)](#Imnsomniahttps:insomnia.rest)
-* 15. [Rest client in visual studio code](#Restclientinvisualstudiocode)
-* 16. [agregar nota con POST](#agregarnotaconPOST)
-* 17. [middlewares en express](#middlewaresenexpress)
-* 18. [Problemas de CORS(Cross-Origin Resource Sharing)](#ProblemasdeCORSCross-OriginResourceSharing)
-* 19. [Deployar nuestra API en Heroku](#DeployarnuestraAPIenHeroku)
-* 20. [diccionario](#diccionario)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># INDICE
-
-  
-
-
-# Node.js
+# NodeJS
+ #Node
 
 que es nodejs?Es un entorno de ejecucion de codigo de lado del para ejecutar codigo de javaScript _"Node.js se basa en el motor de JavaScript V8 de Google, que se utiliza en el navegador web Google Chrome. Sin embargo, en lugar de ejecutar JavaScript en el navegador, Node.js permite a los desarrolladores ejecutar JavaScript en el servidor, lo que les brinda una gran flexibilidad y eficiencia en la creación de aplicaciones en tiempo real y de alta escalabilidad"._-chatGPT
 
 podemos empezar a ejecutar codigo de nodeJS desde la consola solo ejecutando el comando node
 
-##  1. <a name='Iniciarproyectoconnpm'></a>Iniciar proyecto con npm
+##  Iniciar proyecto con npm
 
 para iniciar un proyecto de node necesitamos usar npm para esto podemos ejecutar `npm init` lo que nos desplegara una serie de preguntas para omitirla podemos usar `npm init -y `
 
-##  2. <a name='EjecutararchivoconnodeJS'></a>Ejecutar archivo con nodeJS
+##  Ejecutar archivo con nodeJS
 
 para ejecutar un archivo desde la terminal podemos usar el comando node seguido de la direccion del archivo `node -file phat`
 
-###  2.1. <a name='Ejecutarconscripts'></a>Ejecutar con scripts
+### Ejecutar con scripts
 
 podemos usar el comando que mencionamos en la seccion pasada pero esto a largo plazo no es muy recomendable lo que tenemos que usar son los scripts que estan incluidos en nuestro archivo package.json
 
@@ -54,7 +21,7 @@ podemos usar el comando que mencionamos en la seccion pasada pero esto a largo p
 
 para ejecutar estos ecripts tenemos que usar el comando `npm run -nombre de escript` porejemplo `nom run start`
 
-##  3. <a name='PrimerservidorconnodeJS'></a>Primer servidor con nodeJS
+## Primer servidor con nodeJS
 
 para crear un sevidor LOCAL en node js los pasos son los siguienetes
 
@@ -81,7 +48,7 @@ que es request y response? request y response son los dos parametros que se le p
 
 <FONT color="red">Nota: es importante que el puerto que eligamos este libre</FONT>
 
-##  4. <a name='Pasarobjetosenunresponse'></a>Pasar objetos en un response
+##  Pasar objetos en un response
 
 para pasar un objeto como response no lo podemos pasar asi como si nada tenemos que usar ya que esto causaria un erro lo que tenemos que hacer es combertir cada uno de estos datos a un string de la siguiente manera
 
@@ -114,13 +81,13 @@ const app = http.createServer((request, response) => {
 });
 ```
 
-##  5. <a name='contenttype'></a>content type
+## content type
 
 depende de el tipo de dato que queramos debolver este tiene que tener un conten-type distinto
 
 [**lista completa de content-type**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)
 
-##  6. <a name='Nodemon'></a>Nodemon
+## Nodemon
 
 que es nodemone? asta haora lo que estamos haciendo cada que queremos ver los cambios de nuestra apllicacion es cerrar el servidor luego volverlo a abrir esto lo podemos solucionar con una dependencia llamada nodemon la cual podemos instalar con el comando `node install nodemon -D`
 
@@ -128,11 +95,12 @@ pata ejecutar tenemos que agregar un script como `"dev":nodemon index.js` o desd
 
 <FONT color="red">Nota: es importante que uses el -D en este tipo de dependencia ya que se refiere a que solo lo vamos a usar en el servidor de desarollo</FONT>
 
-##  7. <a name='queesexpressyporqueexpress'></a>que es express? y porque express?
+## que es express? y porque express?
 
 _Express es un framework de Node.js que proporciona una capa de abstracción sobre el manejo de solicitudes HTTP y la creación de aplicaciones web y APIs. En términos sencillos, Express facilita la construcción de aplicaciones web utilizando Node.js._-chatGPT
 
-##  8. <a name='Express'></a>Express
+## Express
+#express
 
 para empezar a usar express primero tenemos que exportarlo como cualquier otra dependencia
 
@@ -169,7 +137,7 @@ const port = 3000;
 app.listen(port, () => [console.log("ejecutando")]);
 ```
 
-##  9. <a name='semanticaenlasversionesdepackage'></a>semantica en las versiones de package
+## semantica en las versiones de package
 
 las versiones en elm package.json tienen una semantica eso significa que cada numero tiene un significado por ejemplo en la siguiente version
 
@@ -185,13 +153,14 @@ las versiones en elm package.json tienen una semantica eso significa que cada nu
 
 <FONT color ="red">Note: si quieres tener controladas las versiones de las dependencias es nesesario que elimines el caret(^)</FONT>
 
-##  10. <a name='apires'></a>api res
+##  Api res
 
 una api res es un tipo de arquitectura de una api _API REST (o RESTful API) es un conjunto de convenciones y prácticas para construir y exponer servicios web que utilizan el protocolo HTTP para permitir la comunicación y el intercambio de datos entre aplicaciones. REST significa Representational State Transfer y se basa en el concepto de recursos, que son identificadores únicos para información o datos que se pueden acceder y manipular a través de una interfaz uniforme._-chatGPT
 
 osea que ay un solo link para todo un tema por ejemplo si estamos hablando de notas nuestro unica direccion para todo tanto como get o para post seria /api/notes
 
 # Creando api res
+#api 
 
 ##  11. <a name='Devolvertodasloselementos'></a>Devolver todas los elementos
 
@@ -232,7 +201,7 @@ app.listen(port, () => [console.log(`live server in port ${port}`)]);
 
 con este codigo ya estariamos debolbiendo todas las notas pero y si queremos debolver solo una
 
-##  12. <a name='Debolviendoelementosporiddinamica'></a>Debolviendo elementos por id dinamica
+## Debolviendo elementos por id dinamica
 
 primero tenemos que poner en la direciion algo que sea dincamico osea que sea como un identificador unico lugo tenemos que recuperarlo en el request de la siguiente manera para luego poner un filtro o una busqueda aver si existe esa id en una nota
 
@@ -257,7 +226,7 @@ if (note) {
 }
 ```
 
-##  13. <a name='haciendodeleteaelemetos'></a>haciendo delete a elemetos
+##  haciendo delete a elemetos
 
 hasta aqui ya podemos llamar a solo uno pero que tal si queremos borrar un elemento en este caso una nota
 
@@ -299,7 +268,7 @@ una puede ser [**postman**](https://www.postman.com/)
 
 pero vamos a usar
 
-##  14. <a name='Imnsomniahttps:insomnia.rest'></a>[**Imnsomnia**](https://insomnia.rest/)
+## [**Imnsomnia**](https://insomnia.rest/)
 
 Esta aplicacion es muy sencilla ya que la podemos aprender a usar con intuicion
 
@@ -311,7 +280,7 @@ para eleminar una solo vasta con indicar la url y el id y esta se eliminara
 
 ![](./img/delate.png)<small>ya no existe la nota 1</small>
 
-##  15. <a name='Restclientinvisualstudiocode'></a>Rest client in visual studio code
+##  Rest client in visual studio code
 
 esta es una extencion de visual estudio code y es muy util por que en esta si alguien mas quiere hacer una peticion para probar puedes hacerla desde un documento aparte con la extencion .rest
 
@@ -329,7 +298,7 @@ para hacer un post tenemos que pasar el objeto
 
 ![](./img/vs%20code%20request.png)
 
-##  16. <a name='agregarnotaconPOST'></a>agregar nota con POST
+## agregar nota con POST
 
 para hacer esto tenemos que usar el metodo **post**
 
@@ -369,7 +338,7 @@ app.post("/api/notes", (request, response) => {
 <FONT color="red">Nota: la id como si tenemos un date(fecha) no se tiene que pasar por una post ya que estas se deverian de generar la misma api _**entre menos contenido le pasemos a una api mejor**_ </FONT>
 
 
-##  17. <a name='middlewaresenexpress'></a>middlewares en express
+## middlewares en express
 
 que es un middleware? un middleware es una funcion que intersepta la peticion que esta pasando por tu api 
 
@@ -393,7 +362,7 @@ pdemso hacer lo que sea para recuperar datos de la request pero siempre al ultim
 
 esto es muy util para crear un 404 ya que si no entra en ninguno se va a ir por la ultima opccion
 
-##  18. <a name='ProblemasdeCORSCross-OriginResourceSharing'></a>Problemas de CORS(Cross-Origin Resource Sharing)
+##  Problemas de CORS(Cross-Origin Resource Sharing)
 
 Que es el cors? "El problema CORS se refiere a una situación en la que una aplicación web basada en navegador intenta acceder a recursos que están en otro dominio y el servidor no permite esa comunicación"-Bing Chat.
 **En pocas palabras el problma es que la api esta en otro dominio y el backend de ella no espicifico quienes pueden hacceder a esta osea que otro dominio pueda acceder a ella** para solucionar:
@@ -407,7 +376,7 @@ Que es el cors? "El problema CORS se refiere a una situación en la que una apli
 
 <FONT color="red">Nota: Este middleware no lo uses como metodo de seguridad para tu API ya que es muy facil de hackear</FONT>
 
-##  19. <a name='DeployarnuestraAPIenHeroku'></a>Deployar nuestra API en Heroku
+##  Deployar nuestra API en Heroku
 
 1. El primer paso para deployar nuestra API es hacer un repositorio de gitHub con todos los archivos de la api
 
@@ -438,18 +407,8 @@ esto nos ba a regresar una URL que vamos a utilizar pero en este momento aun no 
 ```
 cuando agamos esto se instalara en el remoto de heroku todos los archivos 
 
-5. 
-
 
 <FONT color="red">Nota: para realizar el tercer paso tenemos que tener instalado [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)</FONT>
-
-
-##  20. <a name='diccionario'></a>diccionario
-
-- variavles de entorno: una variable de entorno son variables que no estan en nuestra aplicacion si no en nuestro sistema operativo una forma de pasar variables de entorno es en la terminal o usando un archivo .env pero si queremos usar esta maner tenemos que descragar dependencia llamada dotenv
-```javascript
-  const PORT = process.env.PORT
-```
 
 
 ## utilisando middlewares para manejar errores en Express
@@ -532,3 +491,16 @@ algo statico es algo que nunca va a cambiar por ejemplo  puede ser unas imagenes
 ```javascript
 app.use(express.static('img'))//pasamos la ruta de la carpeta estatica
 ```
+
+##  diccionario
+
+- variavles de entorno: una variable de entorno son variables que no estan en nuestra aplicacion si no en nuestro sistema operativo una forma de pasar variables de entorno es en la terminal o usando un archivo .env pero si queremos usar esta maner tenemos que descragar dependencia llamada dotenv
+```javascript
+  const PORT = process.env.PORT
+```
+
+
+
+> Si quieres segir haciendo cosas con la api los siguientes pasos son: 
+>  - [[MongoDB#Conectando backend(applicacion) a MongoDB]]
+>  - [[Testing#Haciendo testing a una api]]

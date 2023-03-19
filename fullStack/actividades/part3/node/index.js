@@ -109,4 +109,7 @@ app.use((request, response) => {
 }
 )
 const port = 3001
-app.listen(port, () => [console.log(`live server in port ${port}`)])
+
+const server = app.listen(port, () => { console.log(`live server in port ${port}`) })
+
+module.exports = { server, app }

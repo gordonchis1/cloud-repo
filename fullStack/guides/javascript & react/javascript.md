@@ -1,4 +1,5 @@
-# JavaScript
+# javascript
+#JavaScript
 
 es un lenguaje basado en ecmascript multi paradigma
 

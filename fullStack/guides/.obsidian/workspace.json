@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "0673182d8175229e",
+        "id": "bfbd19de91c306ea",
         "type": "tabs",
         "children": [
           {
-            "id": "0c1cbfec9ad3ff01",
+            "id": "614a895575864813",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "javascript & react/react.md",
-                "mode": "preview",
+                "file": "Testing/Testing.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 266,
+    "collapsed": true
   },
   "right": {
     "id": "76306d3a8621a1ff",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "javascript & react/react.md",
+                "file": "Testing/Testing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "javascript & react/react.md",
+                "file": "Testing/Testing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "javascript & react/react.md"
+                "file": "Testing/Testing.md"
               }
             }
           }
@@ -133,7 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -146,8 +147,32 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0c1cbfec9ad3ff01",
+  "active": "614a895575864813",
   "lastOpenFiles": [
-    "javascript & react/javascript.md"
+    "Testing/img/noClose.png",
+    "nodeJS & eslint & mongoDB/NodeJS.md",
+    "nodeJS & eslint & mongoDB/MongoDB.md",
+    "Testing/Testing.md",
+    "javascript & react/react.md",
+    "javascript & react/javascript.md",
+    "Route.canvas",
+    "imgRoute/React.png",
+    "imgRoute/mongoDB.png",
+    "imgRoute/mongoDB.png.crdownload",
+    "imgRoute/js.png",
+    "imgRoute/js.png.crdownload",
+    "imgRoute/Node.png",
+    "imgRoute/Node.png.crdownload",
+    "imgRoute/React.png.crdownload",
+    "imgRoute",
+    "nodeJS & eslint & mongoDB/ESlint & deploy.md",
+    "Index FullStack.md",
+    "recursos.md",
+    "Testing/img/describe.png",
+    "nodeJS & eslint & mongoDB/img/insomnia.png",
+    "javascript&react.md",
+    "REEAD.MD.md",
+    "javascript & react/img/componente.png",
+    "javascript & react/img/errKey.png"
   ]
 }
