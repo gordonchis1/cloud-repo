@@ -14,9 +14,17 @@
               "type": "markdown",
               "state": {
                 "file": "Testing/Testing.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
+            }
+          },
+          {
+            "id": "2505a0da0bf042b6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -69,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266,
-    "collapsed": true
+    "width": 276.5
   },
   "right": {
     "id": "76306d3a8621a1ff",
@@ -149,13 +156,16 @@
   },
   "active": "614a895575864813",
   "lastOpenFiles": [
-    "Testing/img/noClose.png",
-    "nodeJS & eslint & mongoDB/NodeJS.md",
-    "nodeJS & eslint & mongoDB/MongoDB.md",
-    "Testing/Testing.md",
-    "javascript & react/react.md",
-    "javascript & react/javascript.md",
+    "recursos.md",
     "Route.canvas",
+    "Index FullStack.md",
+    "javascript & react/javascript.md",
+    "Testing/Testing.md",
+    "javascript & react/React.md",
+    "nodeJS & eslint & mongoDB/MongoDB.md",
+    "nodeJS & eslint & mongoDB/NodeJS.md",
+    "nodeJS & eslint & mongoDB/ESlint & deploy.md",
+    "Testing/img/noClose.png",
     "imgRoute/React.png",
     "imgRoute/mongoDB.png",
     "imgRoute/mongoDB.png.crdownload",
@@ -165,9 +175,6 @@
     "imgRoute/Node.png.crdownload",
     "imgRoute/React.png.crdownload",
     "imgRoute",
-    "nodeJS & eslint & mongoDB/ESlint & deploy.md",
-    "Index FullStack.md",
-    "recursos.md",
     "Testing/img/describe.png",
     "nodeJS & eslint & mongoDB/img/insomnia.png",
     "javascript&react.md",

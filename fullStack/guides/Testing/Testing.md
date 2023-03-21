@@ -60,7 +60,7 @@ checks.forEach((element) => {
 
 ## Usando JEST para hacer testing
 
-Que es jest? jest es un pakete que nos ayudara ha acer test esta echo por facebook pero estaba pensado mas para el frontend que para el backend pero con el tiempo esto se ha ido generalisando para el backend haciendo que funcione igual para las dos partes
+Que es jest? jest es un paquete que nos ayudara ha acer test esta echo por facebook pero estaba pensado mas para el frontend que para el backend pero con el tiempo esto se ha ido generalisando para el backend haciendo que funcione igual para las dos partes
 
 como usar jest? para usar jest solo tenemos que instalarlo como *dependencia de desarollo* con npm
 
@@ -237,13 +237,13 @@ _"[Una expresión regular (también conocida como regex o regexp) es una secuenc
 ## solucinando posibles errores de la api
 
 - tambien hay probalididades que nos regrese lo siguiente
-![1000](./img/noClose.png)
+![](./img/noClose.png)
 esto significa que no emos serrado algo ya sea una conexion con la base de datos o una conexion con el servidor <mark style="background: #FFB8EBA6;">podemos ejecutar --detectOpenHandles para detectar la conexion avierta</mark> 
 
 ###  Solucionando conexion abierta con el Hook afterAll()
 En este caso el puerto que estab abierto era el escuhca del servidor pero para solucionar esto podemos hacer lo siguiente <mark style="background: #FF5582A6;">tenemos que exportar no solo la app si no que tambien el servior</mark>
 ```javascript
-//esto es miy importante importar el app y el server
+//esto es muy importante importar el app y el server
 const { app, server } = require('../index')
 const mongoose = require('mongoose')
 

@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"type":"file","file":"javascript & react/javascript.md","id":"488f9c32c21835d8","x":-1040,"y":-320,"width":400,"height":400,"color":"3"},
-		{"type":"file","file":"javascript & react/react.md","id":"1bb511553ac593a0","x":-420,"y":-320,"width":400,"height":400,"color":"5"},
+		{"type":"file","file":"javascript & react/React.md","id":"1bb511553ac593a0","x":-420,"y":-320,"width":400,"height":400,"color":"5"},
 		{"type":"file","file":"nodeJS & eslint & mongoDB/NodeJS.md","id":"36a5524a5b66e42b","x":200,"y":-320,"width":400,"height":400,"color":"4"},
 		{"type":"file","file":"nodeJS & eslint & mongoDB/ESlint & deploy.md","id":"94d1ef5d209f5c65","x":800,"y":-320,"width":400,"height":400,"color":"6"},
 		{"type":"file","file":"nodeJS & eslint & mongoDB/MongoDB.md","id":"76ebc5e6c0d27dd8","x":1360,"y":-320,"width":400,"height":400,"color":"#264b26"},

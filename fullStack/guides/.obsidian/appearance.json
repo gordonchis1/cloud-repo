@@ -1,7 +1,10 @@
 {
-  "accentColor": "",
+  "accentColor": "#478c9a",
   "cssTheme": "",
   "theme": "obsidian",
   "interfaceFontFamily": "",
-  "textFontFamily": ""
+  "textFontFamily": "",
+  "enabledCssSnippets": [
+    "first"
+  ]
 }

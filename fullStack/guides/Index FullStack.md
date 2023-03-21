@@ -5,7 +5,7 @@ Este es el index interno de fullstack
 
 1.  **javascript & react**
 	- [[javascript]]
-	- [[react]]
+	- [[React]]
 2.  **nodeJS & express**
 	- [[NodeJS]]
 	- [[NodeJS#Express]]

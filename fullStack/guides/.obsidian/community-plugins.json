@@ -1,5 +1,7 @@
 [
   "highlightr-plugin",
   "cmenu-plugin",
-  "obsidian-banners"
+  "obsidian-banners",
+  "obsidian-icon-folder",
+  "obsidian-image-toolkit"
 ]
