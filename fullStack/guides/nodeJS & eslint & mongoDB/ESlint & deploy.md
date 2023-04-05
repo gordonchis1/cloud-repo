@@ -1,5 +1,5 @@
 # ESlint	
-	#ESlint
+#ESlint
 
 que es Eslint? _"ESLint es una herramienta de análisis de código estático de código abierto para JavaScript. Se utiliza para identificar y reportar patrones en el código JavaScript, lo que ayuda a mejorar la calidad y consistencia del código en un proyecto."_-chatGPT
 en pocas palabras ESlint es como un autocorrector para codigo te ayuda a dare un estylo a tu codigo

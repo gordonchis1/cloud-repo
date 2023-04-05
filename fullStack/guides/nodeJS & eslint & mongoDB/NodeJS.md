@@ -492,6 +492,26 @@ algo statico es algo que nunca va a cambiar por ejemplo  puede ser unas imagenes
 app.use(express.static('img'))//pasamos la ruta de la carpeta estatica
 ```
 
+# Refatorizando los endpoints con async/await
+podemos refactorisar los endpints de la siguiente manera usando async/await
+
+- Antes
+```js
+app.get('/api/notes', async (requets, response) => {
+  Note.find().then(data => response.json(data))
+})
+```
+
+- Despues
+```js
+app.get('/api/notes', async (requets, response) => {
+  const notes = await Note.find()
+  response.json(notes)
+})
+```
+
+
+
 ##  diccionario
 
 - variavles de entorno: una variable de entorno son variables que no estan en nuestra aplicacion si no en nuestro sistema operativo una forma de pasar variables de entorno es en la terminal o usando un archivo .env pero si queremos usar esta maner tenemos que descragar dependencia llamada dotenv
@@ -499,8 +519,12 @@ app.use(express.static('img'))//pasamos la ruta de la carpeta estatica
   const PORT = process.env.PORT
 ```
 
-
+---
 
 > Si quieres segir haciendo cosas con la api los siguientes pasos son: 
 >  - [[MongoDB#Conectando backend(applicacion) a MongoDB]]
 >  - [[Testing#Haciendo testing a una api]]
+
+---
+
+- <small>[[Recursos#Backend recursos]]<small>

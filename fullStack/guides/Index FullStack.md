@@ -16,4 +16,4 @@ Este es el index interno de fullstack
 4. **Testing** 
 	- [[Testing]]
 
-5. **[[recursos]]**
+5. **[[Recursos]]**

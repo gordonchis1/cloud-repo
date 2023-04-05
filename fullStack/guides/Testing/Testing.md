@@ -260,3 +260,273 @@ afterAll(()=> {
 })//lo que decimos es cuando termine todos los test cierra la conexion del server y la de la base de datos
 
 ```
+
+## Haciendo los test mas eficientes
+
+para hacer los test mas eficientes lo que podemos hacer es que cada que se haga un cambio en el archivo el test se ejecute esto se logra con un script en el package.json
+
+Este escript lo que nos hara es que cada que un documento cambie se aga el test automaticamente
+
+```json
+"test:watch": "npm run test -- --watch"//este es el escript si ya tenemos el script de test echo si no podemos usar el siguiente
+
+"test:watch": "cross-env NODE_ENV=test jest --verbose --silent"
+```
+
+# hacer skip con .skip
+
+para omitir o hacer skip a los test podemos usar la funcion **.skip** de la siguiente manera
+
+```js
+describe.skip('average', () => {
+  test('of one value is the value itself', () => {
+    const result = average([2])
+    expect(result).toBe(2)
+  })
+})
+```
+
+<FONT color="red">Nota: no podemos dejar un skip ya que es una mala practica asi que recuerda que antes de hacer commit debes quitar skip</FONT>
+
+# Testear la respuesta de una api
+
+1. para testear la resuesta de una api podemos hacer lo siguiente como tenemos una vase de datos aparte de la de produccion lo primero que tenemos que hacer es eliminar todos los documentos o elementos con el hook **beforeEach()** que lo que hara es ejecutar algo antes de cada uno
+
+```js
+const initialNotes = [
+  {
+    content: 'Ya mero llegamos',
+    data: new Date(),
+    important: true
+  },
+  {
+    content: 'solo un paso llegamos',
+    data: new Date(),
+    important: true
+  }
+]//definimos la nota que vamos a tener siempre
+beforeEach(async () => {
+  await Nota.deleteMany()
+  const note1 = new Nota(initialNotes[0])
+  await note1.save()
+  const note2 = new Nota(initialNotes[1])
+  await note2.save()
+})//generamos las notas en nuestra base de datos
+```
+
+
+2. Testear la cantidad de elemntos de la siguiente manera 
+```js
+test('There are two notes', async () => {
+  const response = await api.get('/api/notes')//recuperamos la repuesta
+  expect(response.body).toHaveLength(initialNotes.length)//chekeamos el body que siempre regrese la misma cantidad de elementos que el initialNotes
+})
+```
+
+# algunos ejemplos de test para el GET de tu api
+
+- ver si la llamada regresa un JSON
+```js
+test('notes are returned as json', async () => {
+  await api
+    .get('/api/notes')
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+})
+```
+
+- ver si la llamada regresa dos notas
+```js
+test('There are two notes', async () => {
+  const response = await api.get('/api/notes')
+  expect(response.body).toHaveLength(initialNotes.length)
+})
+```
+
+- ver si el primer elemento de una llamada regresa sierto contenido
+```js
+test('the first note is abaut gordonchis', async () => {
+  const response = await api.get('/api/notes')
+  expect(response.body[0].content).toBe('Ya mero llegamos')
+})
+```
+
+- ver si cualquier elemento de una llamada regresa sierto contenido
+```js
+test('any not content is abaut gordonchis', async () => {
+  const response = await api.get('/api/notes')
+  const content = response.body.map(element => element.content)
+  
+  expect(content).toContain('Ya mero llegamos')
+})
+```
+
+# Ejecutar un test en especifico
+Para no estar ejecutando simpre todos los test podemos hacer lo siguiente
+
+- ejecutar un solo archivo de test
+```json
+"test": "cross-env NODE_ENV=test jest --verbose --silent test/notes.test.js",//espesificas la direccion del archivo con los test
+```
+
+- Ejecutar un test especifico
+```js
+    "test": "cross-env NODE_ENV=test jest --verbose --silent test/notes.test.js -t ""title""", /*especificas el titulo y el archivo del test 
+```
+
+<FONT color="red">Nota: el titulo del test no debe ser 100% exacto ya que nos encontrara las que incluyan estas palabras </FONT>
+
+# Testear el post de la api
+para testear el POST podemos testear si podemos agregar una nota valida 
+```js
+test('a valid note can be added', async () => {
+  const newNote = {
+    content: 'proximamente cima',
+    important: true
+  }
+  await api.post('/api/notes').send(newNote).expect(200)
+})
+```
+
+pero como sabes si en realidad se creo y no es un falso status pues podemos hacer lo que vimos anterior mente que es medir la longitud de la respuesta y si alguno de los elementos contiene el contenido que agregamos
+
+```js
+test('a valid note can be added', async () => {
+  const newNote = {
+    content: 'proximamente cima',
+    important: true
+  }
+  await api.post('/api/notes').send(newNote).expect(200)
+  const response = await api.get('/api/notes'
+  expect(response.body).toHaveLength(initialNotes.length + 1)
+  const content = response.body.map(element => element.content)
+  expect(content).toContain('proximamente cima')
+})
+```
+
+tambien podemos testear que pasi si intentan hacer un post con un body que no cumpla con los parametros esperados
+```js
+test('note without content is not aded',async() => {
+const newNote = {
+    important: true
+  }//crea la nota que le falta algun elemento
+  await api.post('/api/notes').send(newNote).expect(400)
+  const response = await api.get('/api/notes')
+  expect(response.body).toHaveLength(initialNotes.length)//comprobamos que no se agrege
+})
+```
+
+# Helper para hacer test
+
+Ya sabemos como hacer test el prblema que nos vamos a dar cuenta cuando nuestros test escalen es que tenemos mucho codigo que a la larga se vuelve repetitibo como es en el caso de el get a la api 
+
+<FONT color="red">Nota: tenemos que crear un archivo llamado helpers pero no tiene que tener la extencion .test.js solo .js</FONT>
+
+que podemos hacer en este documento lo que podemos hacer es 
+
+- hacer funciones repetitivas como los get a la api
+- guardar los elementos que vamos a crear siempre en la base de datos
+- separar las llamadas y peticiones a las API 
+
+Ejemplo de archivo helpers.js >
+```js
+const { app } = require('../../index')
+const supertest = require('supertest')
+const api = supertest(app)
+
+const initialNotes = [
+  {
+    content: 'Ya mero llegamos',
+    data: new Date(),
+    important: true
+  },
+  {
+    content: 'solo un paso llegamos',
+    data: new Date(),
+    important: true
+  }
+]
+module.exports = {
+  initialNotes,
+  api
+}
+```
+
+
+# hacer test de DELETE en una api
+
+para hacer test de delete en una api podemos probar si la nota en realidad desaparecio y que pasa si el id no exsite de la siguiente manera 
+
+```js
+test('a note can be delete', async () => {
+  const resposne = await getAllNotes()//traemos los elementos
+  const { body } = resposne
+  const noteToDelete = body[0]//seleccionamos la nota que queremos eliminar
+  await api.del(`/api/notes/${noteToDelete.id}`).expect(204) //la eliminamos y lo que esperamos
+
+  const resposneAfter = await getAllNotes()//la volmemos a llamar despues de eliminar todo 
+  expect(resposneAfter.body).toHaveLength(initialNotes.length - 1)//checamos que se haya eliminado
+
+})
+```
+
+```js
+test('delete note that does not exist', async () => {
+  await api.delete('/api/notes/1111111').expect(400)//lo eliminamos que no exista y lo que esperamos
+  const resposne = await getAllNotes()//es lo que queremos esperar
+  expect(resposne.body).toHaveLength(initialNotes.length)
+
+})
+```
+
+
+# Refactorizando beforeEach 
+ - antes teniamos un before each de los test de la siguiente manera 
+
+```js 
+const initialNotes = [
+  {
+    content: 'Ya mero llegamos',
+    data: new Date(),
+    important: true
+  },
+  {
+    content: 'solo un paso llegamos',
+    data: new Date(),
+    important: true
+  }
+]
+
+beforeEach(async () => {
+  await Nota.deleteMany()
+  
+  const note1 = new Nota(initialNotes[0])
+  await note1.save()
+  
+  const note2 = new Nota(initialNotes[1])
+  await note2.save()
+})
+```
+cual es el problema? El problema es que si las notas iniciales cambian de longitud osea que si agregas una esta no se va a guardar el el servidor ya que solo estas guardando las dos primeras
+
+tenemos dos maneras de solucionar esta la primera seria haciendo map a cada elemento creando la nota y cundo la promesa se resuelva regresarla y la otra seria con un for of a cada elemento
+
+- For of
+```js
+  for (const element of initialNotes) {
+    const notesObjects = new Nota(element)//por cada elemento del array creamos una nota
+    await notesObjects.save()//luego la guardamos
+  }
+```
+- map (menos recomendable)
+```js
+const notesObjects = initialNotes.map(element => new Nota(element))
+  const promises = notesObjects.map(element => element.save())
+  await Promise.all(promises)
+```
+
+<FONT color ="red">Nota: La forma de map es menos recomendable ya que hace todo en desorden osea crea las notas al mismo tiempo</FONT>
+
+
+---
+- <small>[[Recursos#Test recursos]]<small>

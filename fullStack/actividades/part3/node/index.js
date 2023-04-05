@@ -38,8 +38,9 @@ app.use((request, response, next) => {
   next()
 })
 
-app.get('/api/notes', (requets, response) => {
-  Note.find({}).then((note) => response.json(note))
+app.get('/api/notes', async (requets, response) => {
+  const notes = await Note.find()
+  response.json(notes)
 })
 
 app.get('/api/notes/:id', (requets, response, next) => {
@@ -79,7 +80,7 @@ app.delete('/api/notes/:id', (request, response, next) => {
     ).catch(err => next(err))
 })
 
-app.post('/api/notes', (request, response) => {
+app.post('/api/notes', async (request, response, next) => {
   const note = request.body
 
   if (!note || !note.content) {
@@ -91,14 +92,19 @@ app.post('/api/notes', (request, response) => {
     important: typeof note.imporant !== 'undefined' ? note.important : false,
     date: new Date().toISOString()
   })
-  noteDb.save().then((saveNota) => { response.json(saveNota) })
+  try {
+    const savedNote = await noteDb.save()
+    response.json(savedNote)
+  } catch (err) {
+    next(err)
+  }
 })
 
 app.use(Sentry.Handlers.errorHandler())
 
 app.use((error, requets, response, next) => {
   if (error.name === 'CastError') {
-    response.status(400).send({ error: 'id is bad' }).end()
+    response.status(400).send({ error: 'Bad Request' }).end()
   } else {
     response.status(500).end()
   }
@@ -108,7 +114,7 @@ app.use((request, response) => {
   response.status(404).json({ error: 'NOT ' })
 }
 )
-const port = 3001
+const port = 3005
 
 const server = app.listen(port, () => { console.log(`live server in port ${port}`) })
 
