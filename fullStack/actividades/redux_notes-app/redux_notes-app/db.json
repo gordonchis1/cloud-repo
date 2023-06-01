@@ -1,0 +1,44 @@
+{
+  "notas": [
+    {
+      "content": "bienvenido",
+      "important": false,
+      "id": 1
+    },
+    {
+      "content": "<3",
+      "important": true,
+      "id": 2
+    },
+    {
+      "content": "):",
+      "important": false,
+      "id": 1
+    },
+    {
+      "content": "hola",
+      "important": false,
+      "id": 3
+    },
+    {
+      "content": "hola",
+      "important": false,
+      "id": 4
+    },
+    {
+      "content": "hola",
+      "important": false,
+      "id": 5
+    },
+    {
+      "content": "cola",
+      "important": false,
+      "id": 6
+    },
+    {
+      "content": "pito",
+      "important": false,
+      "id": 7
+    }
+  ]
+}

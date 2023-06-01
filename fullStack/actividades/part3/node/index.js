@@ -3,10 +3,12 @@ require('dotenv').config()
 
 const Sentry = require('@sentry/node')
 const Tracing = require('@sentry/tracing')
-const Note = require('./models/Note')
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const userRuter = require('./controllers/users')
+const notesRouter = require('./controllers/notes')
+const loginRuter = require('./controllers/login')
 
 app.use(cors())
 app.use(express.json())
@@ -19,10 +21,6 @@ Sentry.init({
     // enable Express.js middleware tracing
     new Tracing.Integrations.Express({ app })
   ],
-
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
   tracesSampleRate: 1.0
 })
 
@@ -38,83 +36,35 @@ app.use((request, response, next) => {
   next()
 })
 
-app.get('/api/notes', async (requets, response) => {
-  const notes = await Note.find()
-  response.json(notes)
-})
+app.use('/api/users', userRuter)
+app.use('/api/notes', notesRouter)
+app.use('/api/login', loginRuter)
 
-app.get('/api/notes/:id', (requets, response, next) => {
-  const { id } = requets.params
-
-  Note.findById(id).then(note => {
-    if (note) {
-      return response.json(note)
-    } else {
-      response.status(404).end()
-    }
-  }
-  ).catch(err => {
-    next(err)
-  })
-})
-
-app.put('/api/notes/:id', (request, response, next) => {
-  const { id } = request.params
-  const note = request.body
-
-  const updateNote = {
-    content: note.content,
-    important: note.important
-  }
-
-  Note.findByIdAndUpdate(id, updateNote, { new: true }).then(data => {
-    response.json(200, data).end()
-  }
-  )
-})
-
-app.delete('/api/notes/:id', (request, response, next) => {
-  const { id } = request.params
-  Note.findByIdAndRemove(id)
-    .then(result => { response.status(204).end() }
-    ).catch(err => next(err))
-})
-
-app.post('/api/notes', async (request, response, next) => {
-  const note = request.body
-
-  if (!note || !note.content) {
-    return response.status(400).json({ error: 'no error mising is ivalid' })
-  }
-
-  const noteDb = new Note({
-    content: note.content,
-    important: typeof note.imporant !== 'undefined' ? note.important : false,
-    date: new Date().toISOString()
-  })
-  try {
-    const savedNote = await noteDb.save()
-    response.json(savedNote)
-  } catch (err) {
-    next(err)
-  }
-})
+if (process.env.NODE_ENV === 'test') {
+  const testRouter = require('./controllers/testing')
+  app.use('/api/testing', testRouter)
+}
 
 app.use(Sentry.Handlers.errorHandler())
 
 app.use((error, requets, response, next) => {
   if (error.name === 'CastError') {
     response.status(400).send({ error: 'Bad Request' }).end()
+  } else if (error.name === 'JsonWebTokenError') {
+    response.status(401).json({ error: 'token is invalid ' })
   } else {
     response.status(500).end()
   }
 })
 
 app.use((request, response) => {
-  response.status(404).json({ error: 'NOT ' })
+  response.status(400).json({ error: 'NOT ' })
 }
 )
-const port = 3005
+
+const { NODE_ENV, PORT } = process.env
+
+const port = NODE_ENV === 'test' ? PORT : 3100
 
 const server = app.listen(port, () => { console.log(`live server in port ${port}`) })
 

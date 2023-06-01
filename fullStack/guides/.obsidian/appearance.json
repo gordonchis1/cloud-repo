@@ -6,5 +6,6 @@
   "textFontFamily": "",
   "enabledCssSnippets": [
     "first"
-  ]
+  ],
+  "baseFontSize": 15
 }

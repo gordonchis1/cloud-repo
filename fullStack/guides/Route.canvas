@@ -1,19 +1,30 @@
 {
 	"nodes":[
-		{"type":"file","file":"javascript & react/javascript.md","id":"488f9c32c21835d8","x":-1040,"y":-320,"width":400,"height":400,"color":"3"},
-		{"type":"file","file":"javascript & react/React.md","id":"1bb511553ac593a0","x":-420,"y":-320,"width":400,"height":400,"color":"5"},
-		{"type":"file","file":"nodeJS & eslint & mongoDB/NodeJS.md","id":"36a5524a5b66e42b","x":200,"y":-320,"width":400,"height":400,"color":"4"},
-		{"type":"file","file":"nodeJS & eslint & mongoDB/ESlint & deploy.md","id":"94d1ef5d209f5c65","x":800,"y":-320,"width":400,"height":400,"color":"6"},
-		{"type":"file","file":"nodeJS & eslint & mongoDB/MongoDB.md","id":"76ebc5e6c0d27dd8","x":1360,"y":-320,"width":400,"height":400,"color":"#264b26"},
-		{"type":"file","file":"Testing/Testing.md","id":"13fa8560fb158ba5","x":1360,"y":-960,"width":400,"height":400,"color":"2"},
-		{"id":"2027c4c047f3c8af","x":-1760,"y":-180,"width":480,"height":120,"type":"text","text":"# HTML, CSS\n\n**ESTE ES ELUNICO REQUISITO**\n"}
+		{"type":"file","file":"javascript & react & npm/javascript.md","id":"488f9c32c21835d8","x":-1040,"y":-320,"width":400,"height":400,"color":"3"},
+		{"type":"file","file":"javascript & react & npm/React.md","id":"1bb511553ac593a0","x":-420,"y":-320,"width":400,"height":400,"color":"5"},
+		{"type":"file","file":"nodeJS & eslint & mongoDB & API token/NodeJS.md","id":"36a5524a5b66e42b","x":200,"y":-320,"width":400,"height":400,"color":"4"},
+		{"type":"file","file":"nodeJS & eslint & mongoDB & API token/ESlint & deploy.md","id":"94d1ef5d209f5c65","x":800,"y":-320,"width":400,"height":400,"color":"6"},
+		{"type":"file","file":"nodeJS & eslint & mongoDB & API token/MongoDB.md","id":"76ebc5e6c0d27dd8","x":1360,"y":-320,"width":400,"height":400,"color":"#264b26"},
+		{"type":"text","text":"# HTML, CSS\n\n**ESTE ES ELUNICO REQUISITO**\n","id":"2027c4c047f3c8af","x":-1760,"y":-180,"width":480,"height":120},
+		{"type":"file","file":"Testing Backend & Frontend/Testing_Backend.md","id":"13fa8560fb158ba5","x":1360,"y":-1100,"width":400,"height":400,"color":"2"},
+		{"type":"file","file":"Testing Backend & Frontend/Testing_frontend.md","id":"abd72c77b23ff786","x":2000,"y":-1100,"width":400,"height":400,"color":"#00ffcc"},
+		{"type":"file","file":"nodeJS & eslint & mongoDB & API token/JSON web token & localeStorage & cookies.md","id":"67c6de58a33be315","x":2000,"y":-320,"width":400,"height":400},
+		{"id":"37ea7a8b61ae7b86","x":1640,"y":-1780,"width":400,"height":400,"type":"file","file":"Testing Backend & Frontend/Testing End2End Cypress.md"},
+		{"id":"e548d3162734dd42","x":2600,"y":-320,"width":400,"height":400,"type":"file","file":"Redux/Redux.md"},
+		{"id":"42f24c04157f91ee","x":3180,"y":-320,"width":400,"height":400,"type":"file","file":"javascript & react & npm/React router.md"}
 	],
 	"edges":[
 		{"id":"e35e91094e82c504","fromNode":"488f9c32c21835d8","fromSide":"right","toNode":"1bb511553ac593a0","toSide":"left"},
 		{"id":"4ec0e5759103550d","fromNode":"1bb511553ac593a0","fromSide":"right","toNode":"36a5524a5b66e42b","toSide":"left"},
 		{"id":"947cdcc4ebd3e09c","fromNode":"36a5524a5b66e42b","fromSide":"right","toNode":"94d1ef5d209f5c65","toSide":"left"},
 		{"id":"656e1d98da1c1d95","fromNode":"94d1ef5d209f5c65","fromSide":"right","toNode":"76ebc5e6c0d27dd8","toSide":"left"},
-		{"id":"6920d804735a806b","fromNode":"76ebc5e6c0d27dd8","fromSide":"top","toNode":"13fa8560fb158ba5","toSide":"bottom"},
-		{"id":"d22d93902de16564","fromNode":"2027c4c047f3c8af","fromSide":"right","toNode":"488f9c32c21835d8","toSide":"left"}
+		{"id":"6920d804735a806b","fromNode":"76ebc5e6c0d27dd8","fromSide":"top","toNode":"13fa8560fb158ba5","toSide":"bottom","label":"RUTA (opcional)"},
+		{"id":"d22d93902de16564","fromNode":"2027c4c047f3c8af","fromSide":"right","toNode":"488f9c32c21835d8","toSide":"left"},
+		{"id":"aa3213190ffe7204","fromNode":"76ebc5e6c0d27dd8","fromSide":"right","toNode":"67c6de58a33be315","toSide":"left"},
+		{"id":"4311b9c07070ea51","fromNode":"67c6de58a33be315","fromSide":"top","toNode":"abd72c77b23ff786","toSide":"bottom","label":"RUTA (opcional)"},
+		{"id":"ca40a9080214d870","fromNode":"37ea7a8b61ae7b86","fromSide":"bottom","toNode":"13fa8560fb158ba5","toSide":"top"},
+		{"id":"a83e9e20928491db","fromNode":"abd72c77b23ff786","fromSide":"top","toNode":"37ea7a8b61ae7b86","toSide":"bottom"},
+		{"id":"57ff23e4a6e4c2c1","fromNode":"67c6de58a33be315","fromSide":"right","toNode":"e548d3162734dd42","toSide":"left"},
+		{"id":"6b272f136cef7e90","fromNode":"42f24c04157f91ee","fromSide":"left","toNode":"e548d3162734dd42","toSide":"right"}
 	]
 }

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "bfbd19de91c306ea",
+        "id": "5624b46318da6dff",
         "type": "tabs",
         "children": [
           {
-            "id": "2505a0da0bf042b6",
+            "id": "4c20a345b75221e4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Testing/Testing.md",
+                "file": "GraphQL/GraphQL.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "delete",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -64,12 +64,20 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "6b429c3af3522ec6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 276.5
+    "width": 334.5
   },
   "right": {
     "id": "76306d3a8621a1ff",
@@ -85,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Testing/Testing.md",
+                "file": "GraphQL/GraphQL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Testing/Testing.md",
+                "file": "GraphQL/GraphQL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,11 +133,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Testing/Testing.md"
+                "file": "GraphQL/GraphQL.md"
               }
             }
+          },
+          {
+            "id": "b33701635ea6f197",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -143,37 +160,59 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "2505a0da0bf042b6",
+  "active": "4c20a345b75221e4",
   "lastOpenFiles": [
-    "javascript & react/React.md",
-    "javascript & react/javascript.md",
-    "nodeJS & eslint & mongoDB/MongoDB.md",
-    "Route.canvas",
-    "Untitled 1.canvas",
-    "Untitled.canvas",
-    "Testing/Testing.md",
-    "nodeJS & eslint & mongoDB/NodeJS.md",
-    "nodeJS & eslint & mongoDB/ESlint & deploy.md",
+    "nodeJS & eslint & mongoDB & API token/NodeJS.md",
+    "nodeJS & eslint & mongoDB & API token/JSON web token & localeStorage & cookies.md",
+    "Redux/Redux.md",
+    "javascript & react & npm/React.md",
+    "nodeJS & eslint & mongoDB & API token/MongoDB.md",
+    "Estilos bootstrap & tailwindcss/Bootstrap.md",
+    "GraphQL/GraphQL.md",
+    "GraphQL/img/handleRefactorError.png",
+    "GraphQL/img/handleError.png",
+    "GraphQL/img/mutationQuery.png",
+    "GraphQL/img/findPerson.png",
+    "GraphQL/img/openUrl.png",
+    "GraphQL/img/ApolloDiagram.svg",
+    "GraphQL/img/Sin confirmar 381580.crdownload",
+    "Estilos bootstrap & tailwindcss/Styled Components.md",
+    "GraphQL/img/caracterizticasGraphQL.png",
+    "caracterizticasGraphQL.md",
+    "GraphQL/img",
+    "GraphQL/Nueva carpeta",
+    "GraphQL",
+    "javascript & react & npm/React router.md",
+    "Webpack/Webpack.md",
+    "Webpack",
+    "nodeJS & eslint & mongoDB & API token/ESlint & deploy.md",
+    "Estilos bootstrap & tailwindcss/Material UI.md",
+    "Estilos bootstrap & tailwindcss/img/table.png",
+    "Estilos bootstrap & tailwindcss/img",
+    "Estilos bootstrap & tailwindcss",
+    "Testing Backend & Frontend/Testing_Backend.md",
+    "javascript & react & npm/NPM Workspaces.md",
+    "javascript & react & npm/img/dincamicRute.png",
     "Recursos.md",
+    "Route.canvas",
+    "[👨‍💻.md",
+    "Redux/img/counterReduxReact.png",
+    "Redux/img",
+    "Redux",
+    "Testing Backend & Frontend/Testing End2End Cypress.md",
+    "Testing Backend & Frontend/Testing_frontend.md",
+    "[should.md",
+    "localeStorage & cookies",
+    "[HTTP.md",
+    "[JSON.md",
+    "jwt.md",
     "Index FullStack.md",
-    "Testing/img/noClose.png",
-    "imgRoute/React.png",
-    "imgRoute/mongoDB.png",
-    "imgRoute/mongoDB.png.crdownload",
-    "imgRoute/js.png",
-    "imgRoute/js.png.crdownload",
-    "imgRoute/Node.png",
-    "imgRoute/Node.png.crdownload",
-    "imgRoute/React.png.crdownload",
-    "imgRoute",
-    "Testing/img/describe.png",
-    "nodeJS & eslint & mongoDB/img/insomnia.png",
-    "javascript&react.md",
-    "REEAD.MD.md",
-    "javascript & react/img/componente.png",
-    "javascript & react/img/errKey.png"
+    "img/flujo.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas"
   ]
 }

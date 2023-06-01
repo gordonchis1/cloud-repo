@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="671dde67-2ec5-4281-8c3c-fecd74c81067" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/fullStack/actividades/part3/node/.env" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/actividades/part3/node/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/actividades/part3/node/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/actividades/part3/node/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/actividades/part3/node/models/Note.js" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/actividades/part3/node/models/Note.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/actividades/part3/node/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/actividades/part3/node/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/actividades/part3/node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/actividades/part3/node/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/actividades/part3/node/request/create_note.rest" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/actividades/part3/node/request/create_note.rest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/actividades/part3/node/test/helper/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/actividades/part3/node/test/helper/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/.obsidian/appearance.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/.obsidian/appearance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/.obsidian/community-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/.obsidian/community-plugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/.obsidian/core-plugins-migration.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/.obsidian/core-plugins-migration.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/.obsidian/core-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/.obsidian/core-plugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/.obsidian/graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/.obsidian/graph.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/.obsidian/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/Index FullStack.md" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/Index FullStack.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/Route.canvas" beforeDir="false" afterPath="$PROJECT_DIR$/fullStack/guides/Route.canvas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/Testing/Testing.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/Testing/img/describe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/Testing/img/noClose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/javascript &amp; react/img/componente.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/javascript &amp; react/img/errKey.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/javascript &amp; react/javascript.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/javascript &amp; react/react.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/ESlint &amp; deploy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/MongoDB.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/NodeJS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/MongoDB_cloudster.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/Sentry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/SentryFirstError.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/conectionString.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/conexionmongo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/conexioon app.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/delate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/eslint package.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/insomnia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/json parse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/mongoDB_posts.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/output.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/post.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/scripts.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/standard_eslint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/transformar metodo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fullStack/guides/nodeJS &amp; eslint &amp; mongoDB/img/vs code request.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Q5acvP4oWGQZp0viZ8GBQeLwge" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="671dde67-2ec5-4281-8c3c-fecd74c81067" name="Changes" comment="" />
+      <created>1684645982932</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684645982932</updated>
+      <workItem from="1684645983466" duration="13000" />
+    </task>
+    <servers />
+  </component>
+</project>
