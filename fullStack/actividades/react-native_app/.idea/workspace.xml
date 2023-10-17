@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="59a4965b-6222-4acd-9145-b94448a1446e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/AppBar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Main.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RepositoreItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RepositoriesList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RepositoryItemHeader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RepositoryStats.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/StyleText.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/StyledTextInput.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphql/queries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useRepositories.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/apolloClient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/validationsSchemas/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/.obsidian/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/.obsidian/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/.obsidian/appearance.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/.obsidian/appearance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/.obsidian/community-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/.obsidian/community-plugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/.obsidian/core-plugins-migration.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/.obsidian/core-plugins-migration.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/.obsidian/core-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/.obsidian/core-plugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/.obsidian/graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/.obsidian/graph.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/.obsidian/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/GraphQL/GraphQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/GraphQL/GraphQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/javascript &amp; react &amp; npm/React router.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/javascript &amp; react &amp; npm/React router.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../guides/nodeJS &amp; eslint &amp; mongoDB &amp; API token/NodeJS.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../guides/nodeJS &amp; eslint &amp; mongoDB &amp; API token/NodeJS.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="React" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2UQEsWm94btTLHsO4Q6KZwa40wv" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "ScreenshotViewer.SavePath": "D:/Proyects/cloud-repo/fullStack/guides/React native/img",
+    "ToolWindowRunning Devices.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Proyects/cloud-repo/fullStack/actividades/continuous-integration",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\eduar\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Proyects\cloud-repo\fullStack\actividades\react-native_app\src" />
+      <recent name="D:\Proyects\cloud-repo\fullStack\actividades\react-native_app\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Proyects\cloud-repo\fullStack\actividades\react-native_app\src" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="run" />
+      <command value="npm run " />
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59a4965b-6222-4acd-9145-b94448a1446e" name="Changes" comment="" />
+      <created>1692863610761</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692863610761</updated>
+      <workItem from="1693104649677" duration="2149000" />
+      <workItem from="1693274627006" duration="4000" />
+      <workItem from="1693871508301" duration="175000" />
+      <workItem from="1694039830712" duration="5043000" />
+      <workItem from="1694124901539" duration="3594000" />
+      <workItem from="1694210250896" duration="12000" />
+      <workItem from="1694241950987" duration="2886000" />
+      <workItem from="1694300188439" duration="1395000" />
+      <workItem from="1694310512964" duration="2653000" />
+      <workItem from="1694361986498" duration="4000" />
+      <workItem from="1696811956008" duration="6065000" />
+      <workItem from="1696991062708" duration="3567000" />
+      <workItem from="1697159068777" duration="3242000" />
+      <workItem from="1697248145529" duration="1220000" />
+      <workItem from="1697258121782" duration="3023000" />
+      <workItem from="1697320915765" duration="376000" />
+      <workItem from="1697420879718" duration="4690000" />
+      <workItem from="1697492256321" duration="6396000" />
+      <workItem from="1697514980112" duration="24000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "5624b46318da6dff",
+        "id": "2c9e5fde5a41adb7",
         "type": "tabs",
         "children": [
           {
-            "id": "4c20a345b75221e4",
+            "id": "e19dcd3cf2dba440",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GraphQL/GraphQL.md",
+                "file": "Integracion continua/Github acctions.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "delete",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 334.5
+    "width": 282.5
   },
   "right": {
     "id": "76306d3a8621a1ff",
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "GraphQL/GraphQL.md",
+                "file": "Integracion continua/Github acctions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "GraphQL/GraphQL.md",
+                "file": "Integracion continua/Github acctions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "GraphQL/GraphQL.md"
+                "file": "Integracion continua/Github acctions.md"
               }
             }
           },
@@ -143,6 +143,16 @@
             "state": {
               "type": "advanced-tables-toolbar",
               "state": {}
+            }
+          },
+          {
+            "id": "a8961b6a28202ea7",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
             }
           }
         ],
@@ -160,58 +170,57 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "4c20a345b75221e4",
+  "active": "e19dcd3cf2dba440",
   "lastOpenFiles": [
+    "React native/React native.md",
+    "Integracion continua/Github acctions.md",
+    "Integracion continua/img/github-acctions_page.png",
+    "Integracion continua/img",
+    "Integracion continua/New folder",
+    "Integracion continua",
+    "React native/img/components__platform.png",
+    "React native/Status__bar-color.png",
+    "React native/img/Status__bar-dark.png",
+    "React native/img/Status__bar-color.png",
+    "Estructura de datos y algoritmos/Binary search.md",
+    "Estructura de datos y algoritmos/img/3iteracion_binarysearch.png",
+    "Estructura de datos y algoritmos/img/2iteracion_binarysearch.png",
+    "Estructura de datos y algoritmos/img/1iteracion_binarysearch.png",
+    "Estructura de datos y algoritmos/img",
+    "GraphQL/GraphQL.md",
+    "Estructura de datos y algoritmos",
+    "fragment.md",
+    "javascript & react & npm/React router.md",
+    "React native/img/Scroll.png",
+    "React native/img/statusbar.png",
+    "React native/img",
+    "React native/New folder",
+    "React native",
     "nodeJS & eslint & mongoDB & API token/NodeJS.md",
     "nodeJS & eslint & mongoDB & API token/JSON web token & localeStorage & cookies.md",
     "Redux/Redux.md",
     "javascript & react & npm/React.md",
     "nodeJS & eslint & mongoDB & API token/MongoDB.md",
     "Estilos bootstrap & tailwindcss/Bootstrap.md",
-    "GraphQL/GraphQL.md",
-    "GraphQL/img/handleRefactorError.png",
-    "GraphQL/img/handleError.png",
-    "GraphQL/img/mutationQuery.png",
-    "GraphQL/img/findPerson.png",
-    "GraphQL/img/openUrl.png",
-    "GraphQL/img/ApolloDiagram.svg",
     "GraphQL/img/Sin confirmar 381580.crdownload",
     "Estilos bootstrap & tailwindcss/Styled Components.md",
-    "GraphQL/img/caracterizticasGraphQL.png",
     "caracterizticasGraphQL.md",
     "GraphQL/img",
-    "GraphQL/Nueva carpeta",
-    "GraphQL",
-    "javascript & react & npm/React router.md",
     "Webpack/Webpack.md",
-    "Webpack",
     "nodeJS & eslint & mongoDB & API token/ESlint & deploy.md",
     "Estilos bootstrap & tailwindcss/Material UI.md",
-    "Estilos bootstrap & tailwindcss/img/table.png",
-    "Estilos bootstrap & tailwindcss/img",
-    "Estilos bootstrap & tailwindcss",
     "Testing Backend & Frontend/Testing_Backend.md",
     "javascript & react & npm/NPM Workspaces.md",
-    "javascript & react & npm/img/dincamicRute.png",
     "Recursos.md",
     "Route.canvas",
     "[👨‍💻.md",
-    "Redux/img/counterReduxReact.png",
-    "Redux/img",
-    "Redux",
     "Testing Backend & Frontend/Testing End2End Cypress.md",
     "Testing Backend & Frontend/Testing_frontend.md",
     "[should.md",
-    "localeStorage & cookies",
     "[HTTP.md",
-    "[JSON.md",
-    "jwt.md",
-    "Index FullStack.md",
-    "img/flujo.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

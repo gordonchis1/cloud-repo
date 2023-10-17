@@ -5,7 +5,9 @@
   "interfaceFontFamily": "",
   "textFontFamily": "",
   "enabledCssSnippets": [
-    "first"
+    "first",
+    "pie-de-imagen",
+    "pie-de-imagen-callout"
   ],
-  "baseFontSize": 15
+  "baseFontSize": 14
 }
